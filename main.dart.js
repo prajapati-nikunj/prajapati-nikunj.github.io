@@ -187,15 +187,16 @@ if(r==null)r=null
 s=r}r=A.ay6(A.aqj(B.Ey,s==null?"auto":s))
 return new A.a9(r,new A.a9C(),A.ag(r).h("a9<1,i>"))},
 axe(a,b){return b+a},
-QG(){var s=0,r=A.a_(t.e),q,p
+QG(){var s=0,r=A.a_(t.e),q,p,o
 var $async$QG=A.a0(function(a,b){if(a===1)return A.X(b,r)
 while(true)switch(s){case 0:s=3
 return A.a3(A.a9P(A.avw()),$async$QG)
-case 3:s=4
-return A.a3(A.fY(self.window.CanvasKitInit({locateFile:A.b1(A.avU())}),t.e),$async$QG)
-case 4:p=b
-if(A.ahN(p.ParagraphBuilder)&&!A.akk())throw A.d(A.c0("The CanvasKit variant you are using only works on Chromium browsers. Please use a different CanvasKit variant, or use a Chromium browser."))
-q=p
+case 3:p=t.e
+s=4
+return A.a3(A.fY(self.window.CanvasKitInit(p.a({locateFile:A.b1(A.avU())})),p),$async$QG)
+case 4:o=b
+if(A.ahN(o.ParagraphBuilder)&&!A.akk())throw A.d(A.c0("The CanvasKit variant you are using only works on Chromium browsers. Please use a different CanvasKit variant, or use a Chromium browser."))
+q=o
 s=1
 break
 case 1:return A.Y(q,r)}})
@@ -369,7 +370,7 @@ r=$.ai_=new A.HV(new A.iM(s),Math.max(p,1),q,r)
 p=r}return p},
 ap1(a,b){var s,r,q
 t.S3.a(a)
-s={}
+s=t.e.a({})
 r=A.adL(a.a,a.b)
 s.fontFamilies=r
 s.heightMultiplier=a.d
@@ -386,7 +387,7 @@ s.forceStrutHeight=a.w
 s.strutEnabled=!0
 return s},
 abQ(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,a0,a1){return new A.t_(b,c,d,e,f,m,k,a0,g,h,j,q,a1,o,p,r,a,n,s,i,l)},
-aew(a,b){var s={}
+aew(a,b){var s=t.e.a({})
 if(a!=null)s.weight=$.ans()[a.a]
 return s},
 adL(a,b){var s=A.a([],t.s)
@@ -942,7 +943,7 @@ switch(b.a){case 5:case 9:s=A.nm()
 r=A.a7("sRGB")
 if(r==null)r=t.K.a(r)
 s.c.setAttribute("color-interpolation-filters",r)
-s.v4(B.EJ,n)
+s.v4(B.EK,n)
 r=A.cb(a.gn(a))
 s.lb(r,"1",m)
 s.qa(m,n,1,0,0,0,6,l)
@@ -7698,7 +7699,7 @@ if(a==="https")return"https"
 if(a==="package")return"package"
 return a},
 ajd(a,b,c){if(a==null)return""
-return A.zS(a,b,c,B.EU,!1,!1)},
+return A.zS(a,b,c,B.EV,!1,!1)},
 aja(a,b,c,d,e,f){var s,r=e==="file",q=r||f
 if(a==null)return r?"/":""
 else s=A.zS(a,b,c,B.kQ,!0,!0)
@@ -23198,8 +23199,8 @@ return A.a3(q.b.$0(),$async$lX)
 case 3:return A.Y(null,r)}})
 return A.Z($async$lX,r)},
 a6H(){var s=A.b1(new A.Rr(this))
-return{initializeEngine:A.b1(new A.Rs(this)),autoStart:s}},
-YZ(){return{runApp:A.b1(new A.Ro(this))}}}
+return t.e.a({initializeEngine:A.b1(new A.Rs(this)),autoStart:s})},
+YZ(){return t.e.a({runApp:A.b1(new A.Ro(this))})}}
 A.Rr.prototype={
 $0(){return A.akQ(new A.Rq(this.a).$0(),t.e)},
 $S:51}
@@ -23208,7 +23209,7 @@ $0(){var s=0,r=A.a_(t.e),q,p=this
 var $async$$0=A.a0(function(a,b){if(a===1)return A.X(b,r)
 while(true)switch(s){case 0:s=3
 return A.a3(p.a.lX(),$async$$0)
-case 3:q={}
+case 3:q=t.e.a({})
 s=1
 break
 case 1:return A.Y(q,r)}})
@@ -23246,7 +23247,7 @@ Nm(a,b){var s=0,r=A.a_(t.H),q=this
 var $async$$2=A.a0(function(c,d){if(c===1)return A.X(d,r)
 while(true)switch(s){case 0:s=2
 return A.a3(q.a.b.$0(),$async$$2)
-case 2:A.ahq(a,{})
+case 2:A.ahq(a,t.e.a({}))
 return A.Y(null,r)}})
 return A.Z($async$$2,r)},
 $S:249}
@@ -23590,7 +23591,7 @@ $1(a){var s=$.bM
 s=(s==null?$.bM=A.e5(self.window.flutterConfiguration):s).b
 if(s==null)s=null
 else{s=s.canvasKitBaseUrl
-if(s==null)s=null}return(s==null?"https://www.gstatic.com/flutter-canvaskit/b20183e04096094bcc37d9cde2a4b96f5cc684cf/":s)+a},
+if(s==null)s=null}return(s==null?"https://www.gstatic.com/flutter-canvaskit/a794cf2681c6c9fe7b260e0e84de96298dc9c18b/":s)+a},
 $S:56}
 A.a9O.prototype={
 $1(a){this.a.remove()
@@ -24825,25 +24826,25 @@ s.setFillType($.abw()[0])
 return A.afq(s,B.aL)},
 Jb(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,a0,a1,a2){var s=t.eQ
 return A.abQ(s.a(a),b,c,d,e,f,g,h,i,j,k,l,m,s.a(n),o,p,q,r,a0,a1,a2)},
-J8(a,b,c,d,e,f,g,h,i,j,k,l){var s,r,q,p={}
-if(j!=null)p.textAlign=$.any()[j.a]
-if(k!=null)p.textDirection=$.anB()[k.a]
-if(h!=null)p.maxLines=h
+J8(a,b,c,d,e,f,g,h,i,j,k,l){var s,r,q,p=t.e,o=p.a({})
+if(j!=null)o.textAlign=$.any()[j.a]
+if(k!=null)o.textDirection=$.anB()[k.a]
+if(h!=null)o.maxLines=h
 s=f!=null
-if(s)p.heightMultiplier=f
+if(s)o.heightMultiplier=f
 r=l==null
-if(!r)p.textHeightBehavior=$.anC()[0]
-if(a!=null)p.ellipsis=a
-if(i!=null)p.strutStyle=A.ap1(i,l)
-p.replaceTabCharacters=!0
-q={}
+if(!r)o.textHeightBehavior=$.anC()[0]
+if(a!=null)o.ellipsis=a
+if(i!=null)o.strutStyle=A.ap1(i,l)
+o.replaceTabCharacters=!0
+q=p.a({})
 if(e!=null||!1)q.fontStyle=A.aew(e,d)
 if(c!=null)A.ahR(q,c)
 if(s)A.ahT(q,f)
 A.ahQ(q,A.adL(b,null))
-p.textStyle=q
-s=$.b6.aN().ParagraphStyle(p)
-return new A.BJ(s,b,c,f,e,d,r?null:l.c)},
+o.textStyle=q
+p=$.b6.aN().ParagraphStyle(o)
+return new A.BJ(p,b,c,f,e,d,r?null:l.c)},
 ov(a){var s,r,q=null
 t.m6.a(a)
 s=A.a([],t.AT)
@@ -25105,37 +25106,37 @@ r.dy!==$&&A.aI()
 r.dy=s
 q=s}return q}}
 A.Ss.prototype={
-$0(){var s,r,q,p,o,n,m,l,k,j,i,h,g=this.a,f=g.a,e=g.b,d=g.c,c=g.d,b=g.e,a=g.f,a0=g.w,a1=g.z,a2=g.Q,a3=g.as,a4=g.at,a5=g.ay,a6=g.ch,a7=g.CW,a8=g.cx,a9=g.db,b0={}
+$0(){var s,r,q,p,o,n,m,l,k,j,i,h,g=this.a,f=g.a,e=g.b,d=g.c,c=g.d,b=g.e,a=g.f,a0=g.w,a1=g.z,a2=g.Q,a3=g.as,a4=g.at,a5=g.ay,a6=g.ch,a7=g.CW,a8=g.cx,a9=g.db,b0=t.e,b1=b0.a({})
 if(a6!=null){s=A.rj(new A.V(a6.y))
-b0.backgroundColor=s}if(f!=null){s=A.rj(f)
-b0.color=s}if(e!=null){r=B.c.R($.b6.aN().NoDecoration)
+b1.backgroundColor=s}if(f!=null){s=A.rj(f)
+b1.color=s}if(e!=null){r=B.c.R($.b6.aN().NoDecoration)
 s=e.a
 if((s|1)===s)r=(r|B.c.R($.b6.aN().UnderlineDecoration))>>>0
 if((s|2)===s)r=(r|B.c.R($.b6.aN().OverlineDecoration))>>>0
 if((s|4)===s)r=(r|B.c.R($.b6.aN().LineThroughDecoration))>>>0
-b0.decoration=r}if(b!=null)b0.decorationThickness=b
+b1.decoration=r}if(b!=null)b1.decorationThickness=b
 if(d!=null){s=A.rj(d)
-b0.decorationColor=s}if(c!=null)b0.decorationStyle=$.anA()[c.a]
-if(a0!=null)b0.textBaseline=$.anz()[a0.a]
-if(a1!=null)A.ahR(b0,a1)
-if(a2!=null)b0.letterSpacing=a2
-if(a3!=null)b0.wordSpacing=a3
-if(a4!=null)A.ahT(b0,a4)
+b1.decorationColor=s}if(c!=null)b1.decorationStyle=$.anA()[c.a]
+if(a0!=null)b1.textBaseline=$.anz()[a0.a]
+if(a1!=null)A.ahR(b1,a1)
+if(a2!=null)b1.letterSpacing=a2
+if(a3!=null)b1.wordSpacing=a3
+if(a4!=null)A.ahT(b1,a4)
 switch(g.ax){case null:case void 0:break
-case B.w_:A.ahS(b0,!0)
+case B.w_:A.ahS(b1,!0)
 break
-case B.vZ:A.ahS(b0,!1)
+case B.vZ:A.ahS(b1,!1)
 break}if(a5!=null){s=a5.FW("-")
-b0.locale=s}q=g.dx
+b1.locale=s}q=g.dx
 if(q===$){p=A.adL(g.x,g.y)
 g.dx!==$&&A.aI()
 g.dx=p
-q=p}A.ahQ(b0,q)
-if(a!=null||!1)b0.fontStyle=A.aew(a,g.r)
+q=p}A.ahQ(b1,q)
+if(a!=null||!1)b1.fontStyle=A.aew(a,g.r)
 if(a7!=null){g=A.rj(new A.V(a7.y))
-b0.foregroundColor=g}if(a8!=null){o=A.a([],t.J)
+b1.foregroundColor=g}if(a8!=null){o=A.a([],t.J)
 for(g=a8.length,n=0;n<a8.length;a8.length===g||(0,A.D)(a8),++n){m=a8[n]
-l={}
+l=b0.a({})
 s=A.rj(m.a)
 l.color=s
 s=m.b
@@ -25145,12 +25146,12 @@ k[1]=s.b
 l.offset=k
 s=m.c
 l.blurRadius=s
-o.push(l)}b0.shadows=o}if(a9!=null){j=A.a([],t.J)
+o.push(l)}b1.shadows=o}if(a9!=null){j=A.a([],t.J)
 for(g=a9.length,n=0;n<a9.length;a9.length===g||(0,A.D)(a9),++n){i=a9[n]
-h={}
+h=b0.a({})
 h.axis=i.a
 h.value=i.b
-j.push(h)}b0.fontVariations=j}return $.b6.aN().TextStyle(b0)},
+j.push(h)}b1.fontVariations=j}return $.b6.aN().TextStyle(b1)},
 $S:51}
 A.BI.prototype={
 glU(a){return this.d},
@@ -29363,7 +29364,7 @@ s=1
 break}j=n.x
 j.d=null
 p=4
-m=new globalThis.window.ImageDecoder({type:n.a,data:n.b,premultiplyAlpha:"premultiply",colorSpaceConversion:"default",preferAnimation:!0})
+m=new globalThis.window.ImageDecoder(t.e.a({type:n.a,data:n.b,premultiplyAlpha:"premultiply",colorSpaceConversion:"default",preferAnimation:!0}))
 i=t.H
 s=7
 return A.a3(A.fY(m.tracks.ready,i),$async$lu)
@@ -29401,7 +29402,7 @@ h=A
 s=4
 return A.a3(p.lu(),$async$fs)
 case 4:s=3
-return A.a3(h.fY(b.decode({frameIndex:p.r}),l),$async$fs)
+return A.a3(h.fY(b.decode(l.a({frameIndex:p.r})),l),$async$fs)
 case 3:k=b.image
 j=p.r
 i=p.d
@@ -30013,7 +30014,7 @@ k=t.f
 j=k.a(J.bk(k.a(B.b7.dN(b)),"data"))
 i=A.cD(J.bk(j,"message"))
 if(i!=null&&i.length!==0){h=A.acB(j,"assertiveness")
-q.Ik(i,B.EA[h==null?0:h])}g.dq(c,B.b7.bA(!0))
+q.Ik(i,B.EB[h==null?0:h])}g.dq(c,B.b7.bA(!0))
 return
 case"flutter/navigation":g.d.k(0,0).zo(b).aY(new A.UA(g,c),t.P)
 g.ry="/"
@@ -31507,7 +31508,7 @@ V8(){var s=this,r=s.Q
 if(r==null){r=s.Q=new A.rp(s.r)
 r.d=new A.UH(s)}return r},
 M3(a){var s,r=this
-if(B.b.u(B.EC,a.type)){s=r.V8()
+if(B.b.u(B.ED,a.type)){s=r.V8()
 s.toString
 s.syz(J.eo(r.r.$0(),B.kl))
 if(r.z!==B.kt){r.z=B.kt
@@ -53734,7 +53735,7 @@ case 1:return A.Y(q,r)}})
 return A.Z($async$wz,r)},
 UY(a,b){var s,r,q,p
 if(a===b)return B.Fl
-if(a===B.ff&&b===B.dD)return B.Ez
+if(a===B.ff&&b===B.dD)return B.EA
 s=A.a([],t.QP)
 if(a==null)s.push(b)
 else{r=B.b.dl(B.ed,a)
@@ -65427,7 +65428,7 @@ r=t.p
 q=A.a([],r)
 if(A.cu(a,o,n).w.a.a>=1024)q.push(B.vn)
 q.push(A.c_(o,o,B.fD,o,o,1/0,o,o,A.cu(a,o,n).w.a.a>=1024?1:0))
-q.push(A.ag9(A.ahJ(A.ib(A.a([A.akt("Summary","Experienced iOS Developer with a strong proficiency in iOS development, backed by 7+ years of hands-on experience. My  unwavering passion for both people and technology serves as the driving force behind my commitment to collaboratively create software applications that effectively address challenging problems. I possess an insatiable thirst for knowledge; constantly seeking opportunities to expand my skill set and enhance the success of the end user, business, and team. In addition, I excel in technical troubleshooting and possess the ability to anticipate and proactively address potential issues before they arise.",l),A.akt("Objectives","Seeking a dynamic position within an organization that fosters professional growth, while providing opportunities to refine and utilize my interpersonal skills to contribute to the company's success. Committed to dedicating my utmost efforts and leveraging valuable experience and training to support the company's growth and achieve mutual success.",l),A.c_(o,B.Q7,o,o,o,o,o,B.dW,o),B.i0,A.ib(A.a([A.hx(A.a([A.ib(A.a([A.hx(A.a([A.WK("assets/images/NIC.png",B.k,B.dG,70,70),B.dq,B.BC],r),B.bp,B.B,B.O)],r),B.bp,B.B),B.i_,B.CQ],r),B.G,B.B,B.O),B.i0,A.hx(A.a([A.ib(A.a([new A.e9(B.bt,A.hx(A.a([A.WK("assets/images/ebiz.png",o,B.dG,60,60),B.dq,B.BG],r),B.bp,B.B,B.O),o)],r),B.bp,B.B),B.i_,B.CR],r),B.G,B.B,B.O),B.i0],r),B.G,B.B),A.hx(A.a([A.ib(A.a([new A.e9(B.bt,A.hx(A.a([A.WK("assets/images/invx.png",o,B.dG,60,60),B.dq,B.BI],r),B.bp,B.B,B.O),o)],r),B.bp,B.B),B.i_,B.CP],r),B.G,B.B,B.O),A.c_(o,B.Qr,o,o,o,o,o,B.dW,o),new A.e9(B.aD,A.ib(A.a([p.iS(" \u25aa Languages:"," Swift, Objective C, Python, Dart, JavaScript, HTML"),p.iS(" \u25aa Integration Tools:"," GitHub, GitLab, Bitbucket, Source Tree"),p.iS(" \u25aa Testing Tools:"," Jira, Red-Mine, Mentis, Asana, Trello, JMeter, Postman, Swagger"),p.iS(" \u25aa Designing Tools:"," Sketch, Figma, Zeplin"),p.iS(" \u25aa iOS Frameworks:"," UIKit, SwiftUI, Combine, In-App Purchase, APNS, Core Animations, Core Bluetooth, Auto Layout, Cocoa pods, SPM, Core Data, Swift Data"),p.iS(" \u25aa Payment Gateways:"," Stripe, Braintree, Razor Pay"),p.iS(" \u25aa Architecture Patterns:"," MVC, MVVM, MVP"),p.iS(" \u25aa App Distribution:"," Appstore, Testflight, CICD, Buddy Build, Magic Link")],r),B.G,B.B),o),A.c_(o,B.BF,o,o,o,o,o,B.dW,o)],r),B.G,B.B))))
+q.push(A.ag9(A.ahJ(A.ib(A.a([A.akt("Summary","Experienced iOS Developer with a strong proficiency in iOS development, backed by 7+ years of hands-on experience. My  unwavering passion for both people and technology serves as the driving force behind my commitment to collaboratively create software applications that effectively address challenging problems. I possess an insatiable thirst for knowledge; constantly seeking opportunities to expand my skill set and enhance the success of the end user, business, and team. In addition, I excel in technical troubleshooting and possess the ability to anticipate and proactively address potential issues before they arise.",l),A.akt("Objectives","Seeking a dynamic position within an organization that fosters professional growth, while providing opportunities to refine and utilize my interpersonal skills to contribute to the company's success. Committed to dedicating my utmost efforts and leveraging valuable experience and training to support the company's growth and achieve mutual success.",l),A.c_(o,B.Q7,o,o,o,o,o,B.dW,o),B.i0,A.ib(A.a([A.hx(A.a([A.ib(A.a([A.hx(A.a([A.WK("assets/images/NIC.png",B.k,B.dG,70,70),B.dq,B.BC],r),B.bp,B.B,B.O)],r),B.bp,B.B),B.i_,B.CQ],r),B.G,B.B,B.O),B.i0,A.hx(A.a([A.ib(A.a([new A.e9(B.bt,A.hx(A.a([A.WK("assets/images/ebiz.png",o,B.dG,60,60),B.dq,B.BF],r),B.bp,B.B,B.O),o)],r),B.bp,B.B),B.i_,B.CR],r),B.G,B.B,B.O),B.i0],r),B.G,B.B),A.hx(A.a([A.ib(A.a([new A.e9(B.bt,A.hx(A.a([A.WK("assets/images/invx.png",o,B.dG,60,60),B.dq,B.BH],r),B.bp,B.B,B.O),o)],r),B.bp,B.B),B.i_,B.CP],r),B.G,B.B,B.O),A.c_(o,B.Qr,o,o,o,o,o,B.dW,o),new A.e9(B.aD,A.ib(A.a([p.iS(" \u25aa Languages:"," Swift, Objective C, Python, Dart, JavaScript, HTML"),p.iS(" \u25aa Integration Tools:"," GitHub, GitLab, Bitbucket, Source Tree"),p.iS(" \u25aa Testing Tools:"," Jira, Red-Mine, Mentis, Asana, Trello, JMeter, Postman, Swagger"),p.iS(" \u25aa Designing Tools:"," Sketch, Figma, Zeplin"),p.iS(" \u25aa iOS Frameworks:"," UIKit, SwiftUI, Combine, In-App Purchase, APNS, Core Animations, Core Bluetooth, Auto Layout, Cocoa pods, SPM, Core Data, Swift Data"),p.iS(" \u25aa Payment Gateways:"," Stripe, Braintree, Razor Pay"),p.iS(" \u25aa Architecture Patterns:"," MVC, MVVM, MVP"),p.iS(" \u25aa App Distribution:"," Appstore, Testflight, CICD, Buddy Build, Magic Link")],r),B.G,B.B),o),A.c_(o,B.BI,o,o,o,o,o,B.dW,o)],r),B.G,B.B))))
 return new A.wa(s,A.Bw(A.c_(o,A.hx(q,B.G,B.B,B.O),o,B.xw,o,o,o,B.dW,o),o,o),B.vn,o)},
 iS(a,b){return A.hx(A.a([A.lf(a,B.w2,null),A.ag9(new A.e9(B.CF,A.lf(b,B.aq,null),null))],t.p),B.G,B.B,B.O)}}
 A.a6t.prototype={
@@ -65562,7 +65563,7 @@ s.sac(0,new A.V(b))
 if(a!==0)s.srO(B.DX[a])
 if(e!=null)s.sn3(this.z[e])
 if(d===1){s.scr(0,B.M)
-if(f!=null&&f!==0)s.sC9(B.EW[f])
+if(f!=null&&f!==0)s.sC9(B.EX[f])
 if(g!=null&&g!==0)s.sCa(B.Fz[g])
 if(h!=null&&h!==4)s.sCb(h)
 if(i!=null&&i!==0)s.shp(i)}this.x.push(s)},
@@ -66203,7 +66204,7 @@ r=a.iO(s)
 q=a.uS(0)
 p=c?this.TY(a.BC(q)):a.q_(q)
 o=$.ae().di()
-o.sms(B.EX[f])
+o.sms(B.EY[f])
 b.y.push(o)
 b.ch=o
 $label0$1:for(n=0,m=0;n<s;++n)switch(r[n]){case 0:l=p[m]
@@ -70795,27 +70796,27 @@ B.q=new A.fC(3)
 B.il=new A.q(!0,null,null,"Montserrat",null,null,16,B.q,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Qi=new A.bv("IndiaNIC InfoTech Ltd.",null,B.il,null,null)
 B.Qe=new A.bv("Lead Software Engineer",null,B.ch,null,null)
-B.EV=A.a(s([B.Qo,B.Qi,B.Qe]),t.p)
-B.BC=new A.h6(B.a9,B.B,B.O,B.G,null,B.aS,null,B.EV,null)
+B.EW=A.a(s([B.Qo,B.Qi,B.Qe]),t.p)
+B.BC=new A.h6(B.a9,B.B,B.O,B.G,null,B.aS,null,B.EW,null)
+B.Q1=new A.bv("July 2018 - Dec 2019, Ahmedabad",null,B.ch,null,null)
+B.Qk=new A.bv("E-BizTrait Techno labs",null,B.il,null,null)
+B.Ql=new A.bv("Senior Software Engineer",null,B.ch,null,null)
+B.FJ=A.a(s([B.Q1,B.Qk,B.Ql]),t.p)
+B.BF=new A.h6(B.a9,B.B,B.O,B.G,null,B.aS,null,B.FJ,null)
+B.Qd=new A.bv("Mar 2016 - Aug 2018, Ahmedabad",null,B.ch,null,null)
+B.Qh=new A.bv("Innvonix Technologies",null,B.il,null,null)
+B.Qq=new A.bv("iOS Engineer",null,B.ch,null,null)
+B.F9=A.a(s([B.Qd,B.Qh,B.Qq]),t.p)
+B.BH=new A.h6(B.a9,B.B,B.O,B.G,null,B.aS,null,B.F9,null)
 B.fP=new A.fC(8)
 B.dt=new A.q(!0,B.k,null,"Montserrat",null,null,22,B.fP,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.a8=new A.hG(0,"left")
 B.Qb=new A.bv("Project Portfolio",null,B.dt,B.a8,null)
 B.Le=new A.hC(null,10,null,null)
 B.PM=new A.q(!0,null,null,"Montserrat",null,null,17,B.q,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.Q4=new A.bv("Connect: nikunjprajapati@gmail.com",null,B.PM,B.a8,null)
-B.F3=A.a(s([B.Qb,B.Le,B.Q4]),t.p)
-B.BF=new A.h6(B.a9,B.B,B.O,B.G,null,B.aS,null,B.F3,null)
-B.Q1=new A.bv("July 2018 - Dec 2019, Ahmedabad",null,B.ch,null,null)
-B.Qk=new A.bv("E-BizTrait Techno labs",null,B.il,null,null)
-B.Ql=new A.bv("Senior Software Engineer",null,B.ch,null,null)
-B.FJ=A.a(s([B.Q1,B.Qk,B.Ql]),t.p)
-B.BG=new A.h6(B.a9,B.B,B.O,B.G,null,B.aS,null,B.FJ,null)
-B.Qd=new A.bv("Mar 2016 - Aug 2018, Ahmedabad",null,B.ch,null,null)
-B.Qh=new A.bv("Innvonix Technologies",null,B.il,null,null)
-B.Qq=new A.bv("iOS Engineer",null,B.ch,null,null)
-B.F9=A.a(s([B.Qd,B.Qh,B.Qq]),t.p)
-B.BI=new A.h6(B.a9,B.B,B.O,B.G,null,B.aS,null,B.F9,null)
+B.Q4=new A.bv("Connect: nikunjprajapati09@gmail.com",null,B.PM,B.a8,null)
+B.Ez=A.a(s([B.Qb,B.Le,B.Q4]),t.p)
+B.BI=new A.h6(B.a9,B.B,B.O,B.G,null,B.aS,null,B.Ez,null)
 B.BJ=new A.lY(!1)
 B.BK=new A.lY(!0)
 B.SW=new A.t6(0)
@@ -70933,17 +70934,17 @@ B.CL=new A.tE(1,"enabled")
 B.dX=new A.tE(2,"disabled")
 B.CM=new A.CW(null)
 B.SZ=new A.oD(0)
-B.EB=A.a(s([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.2126,0.7152,0.0722,0,0]),t.n)
+B.EC=A.a(s([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.2126,0.7152,0.0722,0,0]),t.n)
 B.z9=new A.C_(1,"matrix")
-B.CN=new A.tF(null,null,B.EB,B.z9)
+B.CN=new A.tF(null,null,B.EC,B.z9)
 B.CO=new A.tF(B.hs,B.dF,null,B.jN)
 B.cE=new A.UV(0,"tight")
 B.km=new A.bn(24,24,24,24)
 B.aq=new A.q(!0,null,null,"Montserrat",null,null,14,B.dZ,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Qs=new A.bv(" \u25aa Work closely with other leaders & executives in the company to\xa0deliver Ouality software and services.",null,B.aq,null,null)
 B.Q_=new A.bv(" \u25aa Maintain and enhance existing applications and internal systems.",null,B.aq,null,null)
-B.EL=A.a(s([B.Qs,B.Q_]),t.p)
-B.BD=new A.h6(B.a9,B.B,B.O,B.G,null,B.aS,null,B.EL,null)
+B.EM=A.a(s([B.Qs,B.Q_]),t.p)
+B.BD=new A.h6(B.a9,B.B,B.O,B.G,null,B.aS,null,B.EM,null)
 B.IH=new A.e9(B.km,B.BD,null)
 B.CP=new A.m5(1,B.cE,B.IH,null)
 B.w2=new A.q(!0,null,null,"Montserrat",null,null,14,B.q,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
@@ -70954,8 +70955,8 @@ B.Qm=new A.bv(" \u25aa Trusted member of the estimation and code review panels, 
 B.Qg=new A.bv(" \u25aa Masterful in coordinating diverse teams for in-house and mobile development.",null,B.aq,null,null)
 B.Q2=new A.bv(" \u25aa Firmly believes in project potential, architecture, and team synergy while embracing domain knowledge to conquer business and technical obstacles. Ready to steer transformative projects towards resounding success",null,B.aq,null,null)
 B.FN=A.a(s([B.Qc,B.Qn,B.Qj,B.Qm,B.Qg,B.Q2]),t.p)
-B.BH=new A.h6(B.a9,B.B,B.O,B.G,null,B.aS,null,B.FN,null)
-B.CQ=new A.m5(1,B.cE,B.BH,null)
+B.BG=new A.h6(B.a9,B.B,B.O,B.G,null,B.aS,null,B.FN,null)
+B.CQ=new A.m5(1,B.cE,B.BG,null)
 B.Q6=new A.bv(" \u25aa Guided a software engineering unit to swiftly create and launch a\xa0intricate application within a tight schedule",null,B.aq,null,null)
 B.Q9=new A.bv(" \u25aa Steered the team by establishing long-term vision, managing\xa0conflicting priorities, designing the platform, and advocating top-notch engineering approaches.Harmonized customer, team, and\xa0business needs.",null,B.aq,null,null)
 B.Qp=new A.bv(" \u25aa Conducted code reviews, collaborated with engineers on feature\xa0design, best practices, and architectural enhancements.\xa0Orchestrated mobile development efforts. Cultivated a culture of\xa0diversity and inclusion.",null,B.aq,null,null)
@@ -71141,8 +71142,8 @@ B.Em=A.a(s([71,73,70,56,57,97]),t.Z)
 B.Dt=new A.js(B.Em,"image/gif")
 B.E0=A.a(s([255,216,255]),t.Z)
 B.Dp=new A.js(B.E0,"image/jpeg")
-B.EE=A.a(s([82,73,70,70,null,null,null,null,87,69,66,80]),t.Z)
-B.Dr=new A.js(B.EE,"image/webp")
+B.EF=A.a(s([82,73,70,70,null,null,null,null,87,69,66,80]),t.Z)
+B.Dr=new A.js(B.EF,"image/webp")
 B.Ex=A.a(s([66,77]),t.Z)
 B.Dq=new A.js(B.Ex,"image/bmp")
 B.En=A.a(s([B.Do,B.Ds,B.Dt,B.Dp,B.Dr,B.Dq]),A.W("t<js>"))
@@ -71154,16 +71155,16 @@ B.yX=new A.oe(2,"chromium")
 B.Ey=A.a(s([B.yV,B.yW,B.yX]),A.W("t<oe>"))
 B.kK=A.a(s([B.fT,B.e4,B.cL,B.e7,B.eb,B.c0,B.kI,B.h3,B.an,B.ec,B.bz,B.cI,B.cJ,B.e5,B.cK,B.fU,B.bd,B.fV,B.fW,B.kG,B.am,B.e6,B.cM,B.cN,B.fX,B.fY,B.fZ,B.h_,B.kH,B.h0,B.h1,B.e8,B.cO,B.cP,B.h2,B.e9,B.ea]),A.W("t<bc>"))
 B.ed=A.a(s([B.dD,B.fe,B.iT,B.iU,B.ff]),t.QP)
-B.Ez=A.a(s([B.dD]),t.QP)
-B.EA=A.a(s([B.fg,B.fh]),A.W("t<rE>"))
+B.EA=A.a(s([B.dD]),t.QP)
+B.EB=A.a(s([B.fg,B.fh]),A.W("t<rE>"))
 B.kL=A.a(s([0,4,12,1,5,13,3,7,15]),t.t)
-B.EC=A.a(s(["pointerdown","pointermove","pointerleave","pointerup","pointercancel","touchstart","touchend","touchmove","touchcancel","mousedown","mousemove","mouseleave","mouseup","keyup","keydown"]),t.s)
-B.EJ=A.a(s([0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0]),t.n)
+B.ED=A.a(s(["pointerdown","pointermove","pointerleave","pointerup","pointercancel","touchstart","touchend","touchmove","touchcancel","mousedown","mousemove","mouseleave","mouseup","keyup","keydown"]),t.s)
+B.EK=A.a(s([0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0]),t.n)
 B.FQ=new A.kQ("en","US")
 B.kM=A.a(s([B.FQ]),t.ss)
 B.ee=A.a(s([0,0,24576,1023,65534,34815,65534,18431]),t.t)
 B.kN=A.a(s([0,0,26624,1023,65534,2047,65534,2047]),t.t)
-B.EU=A.a(s([0,0,32722,12287,65534,34815,65534,18431]),t.t)
+B.EV=A.a(s([0,0,32722,12287,65534,34815,65534,18431]),t.t)
 B.fN=new A.fC(0)
 B.D0=new A.fC(1)
 B.aE=new A.fC(4)
@@ -71174,10 +71175,10 @@ B.kO=A.a(s([B.fN,B.D0,B.dZ,B.q,B.aE,B.D4,B.bX,B.D6,B.fP]),A.W("t<fC>"))
 B.bh=new A.pP(0,"butt")
 B.Lr=new A.pP(1,"round")
 B.Lt=new A.pP(2,"square")
-B.EW=A.a(s([B.bh,B.Lr,B.Lt]),A.W("t<pP>"))
+B.EX=A.a(s([B.bh,B.Lr,B.Lt]),A.W("t<pP>"))
 B.aL=new A.vp(0,"nonZero")
 B.c3=new A.vp(1,"evenOdd")
-B.EX=A.a(s([B.aL,B.c3]),A.W("t<vp>"))
+B.EY=A.a(s([B.aL,B.c3]),A.W("t<vp>"))
 B.ah=new A.x2(0,"upstream")
 B.D=new A.x2(1,"downstream")
 B.F4=A.a(s([B.ah,B.D]),A.W("t<x2>"))
@@ -72268,57 +72269,57 @@ B.Et=A.a(s([54,null,null,8589935158]),t.Z)
 B.Eu=A.a(s([55,null,null,8589935159]),t.Z)
 B.Ev=A.a(s([56,null,null,8589935160]),t.Z)
 B.Ew=A.a(s([57,null,null,8589935161]),t.Z)
-B.EF=A.a(s([8589934852,8589934852,8589934853,null]),t.Z)
+B.EG=A.a(s([8589934852,8589934852,8589934853,null]),t.Z)
 B.E3=A.a(s([4294967555,null,4294967555,null]),t.Z)
 B.E4=A.a(s([4294968065,null,null,8589935154]),t.Z)
 B.E5=A.a(s([4294968066,null,null,8589935156]),t.Z)
 B.E6=A.a(s([4294968067,null,null,8589935158]),t.Z)
 B.E7=A.a(s([4294968068,null,null,8589935160]),t.Z)
 B.Ec=A.a(s([4294968321,null,null,8589935157]),t.Z)
-B.EG=A.a(s([8589934848,8589934848,8589934849,null]),t.Z)
+B.EH=A.a(s([8589934848,8589934848,8589934849,null]),t.Z)
 B.E2=A.a(s([4294967423,null,null,8589935150]),t.Z)
 B.E8=A.a(s([4294968069,null,null,8589935153]),t.Z)
 B.E1=A.a(s([4294967309,null,null,8589935117]),t.Z)
 B.E9=A.a(s([4294968070,null,null,8589935159]),t.Z)
 B.Ed=A.a(s([4294968327,null,null,8589935152]),t.Z)
-B.EH=A.a(s([8589934854,8589934854,8589934855,null]),t.Z)
+B.EI=A.a(s([8589934854,8589934854,8589934855,null]),t.Z)
 B.Ea=A.a(s([4294968071,null,null,8589935155]),t.Z)
 B.Eb=A.a(s([4294968072,null,null,8589935161]),t.Z)
-B.EI=A.a(s([8589934850,8589934850,8589934851,null]),t.Z)
-B.pW=new A.cl(["*",B.Ee,"+",B.Ef,"-",B.Eg,".",B.Eh,"/",B.Ei,"0",B.Ej,"1",B.Ek,"2",B.Ep,"3",B.Eq,"4",B.Er,"5",B.Es,"6",B.Et,"7",B.Eu,"8",B.Ev,"9",B.Ew,"Alt",B.EF,"AltGraph",B.E3,"ArrowDown",B.E4,"ArrowLeft",B.E5,"ArrowRight",B.E6,"ArrowUp",B.E7,"Clear",B.Ec,"Control",B.EG,"Delete",B.E2,"End",B.E8,"Enter",B.E1,"Home",B.E9,"Insert",B.Ed,"Meta",B.EH,"PageDown",B.Ea,"PageUp",B.Eb,"Shift",B.EI],A.W("cl<i,y<m?>>"))
+B.EJ=A.a(s([8589934850,8589934850,8589934851,null]),t.Z)
+B.pW=new A.cl(["*",B.Ee,"+",B.Ef,"-",B.Eg,".",B.Eh,"/",B.Ei,"0",B.Ej,"1",B.Ek,"2",B.Ep,"3",B.Eq,"4",B.Er,"5",B.Es,"6",B.Et,"7",B.Eu,"8",B.Ev,"9",B.Ew,"Alt",B.EG,"AltGraph",B.E3,"ArrowDown",B.E4,"ArrowLeft",B.E5,"ArrowRight",B.E6,"ArrowUp",B.E7,"Clear",B.Ec,"Control",B.EH,"Delete",B.E2,"End",B.E8,"Enter",B.E1,"Home",B.E9,"Insert",B.Ed,"Meta",B.EI,"PageDown",B.Ea,"PageUp",B.Eb,"Shift",B.EJ],A.W("cl<i,y<m?>>"))
 B.FA=A.a(s([B.l2,null,null,B.pJ]),t.L)
 B.FB=A.a(s([B.pv,null,null,B.pK]),t.L)
 B.FC=A.a(s([B.pw,null,null,B.pL]),t.L)
 B.FD=A.a(s([B.px,null,null,B.he]),t.L)
 B.FE=A.a(s([B.py,null,null,B.pM]),t.L)
-B.EM=A.a(s([B.pz,null,null,B.hf]),t.L)
-B.EN=A.a(s([B.pA,null,null,B.hg]),t.L)
-B.EO=A.a(s([B.pB,null,null,B.hh]),t.L)
-B.EP=A.a(s([B.pC,null,null,B.hi]),t.L)
-B.EQ=A.a(s([B.pD,null,null,B.hj]),t.L)
-B.ER=A.a(s([B.pE,null,null,B.hk]),t.L)
-B.ES=A.a(s([B.pF,null,null,B.hl]),t.L)
-B.ET=A.a(s([B.pG,null,null,B.hm]),t.L)
+B.EN=A.a(s([B.pz,null,null,B.hf]),t.L)
+B.EO=A.a(s([B.pA,null,null,B.hg]),t.L)
+B.EP=A.a(s([B.pB,null,null,B.hh]),t.L)
+B.EQ=A.a(s([B.pC,null,null,B.hi]),t.L)
+B.ER=A.a(s([B.pD,null,null,B.hj]),t.L)
+B.ES=A.a(s([B.pE,null,null,B.hk]),t.L)
+B.ET=A.a(s([B.pF,null,null,B.hl]),t.L)
+B.EU=A.a(s([B.pG,null,null,B.hm]),t.L)
 B.FL=A.a(s([B.pH,null,null,B.hn]),t.L)
 B.FM=A.a(s([B.pI,null,null,B.ho]),t.L)
 B.Fu=A.a(s([B.cY,B.cY,B.en,null]),t.L)
 B.FO=A.a(s([B.ej,null,B.ej,null]),t.L)
-B.EY=A.a(s([B.aG,null,null,B.hh]),t.L)
-B.EZ=A.a(s([B.au,null,null,B.hj]),t.L)
-B.F_=A.a(s([B.av,null,null,B.hl]),t.L)
+B.EZ=A.a(s([B.aG,null,null,B.hh]),t.L)
+B.F_=A.a(s([B.au,null,null,B.hj]),t.L)
+B.F0=A.a(s([B.av,null,null,B.hl]),t.L)
 B.Fb=A.a(s([B.aH,null,null,B.hn]),t.L)
 B.Fr=A.a(s([B.hb,null,null,B.hk]),t.L)
 B.Fv=A.a(s([B.cW,B.cW,B.em,null]),t.L)
-B.EK=A.a(s([B.ac,null,null,B.he]),t.L)
-B.F0=A.a(s([B.bA,null,null,B.hg]),t.L)
+B.EL=A.a(s([B.ac,null,null,B.he]),t.L)
+B.F1=A.a(s([B.bA,null,null,B.hg]),t.L)
 B.FF=A.a(s([B.ei,null,null,B.hd]),t.L)
-B.F1=A.a(s([B.bB,null,null,B.hm]),t.L)
+B.F2=A.a(s([B.bB,null,null,B.hm]),t.L)
 B.Fs=A.a(s([B.hc,null,null,B.hf]),t.L)
 B.Fw=A.a(s([B.cZ,B.cZ,B.eo,null]),t.L)
-B.F2=A.a(s([B.cU,null,null,B.hi]),t.L)
+B.F3=A.a(s([B.cU,null,null,B.hi]),t.L)
 B.Ft=A.a(s([B.cV,null,null,B.ho]),t.L)
 B.Fx=A.a(s([B.c1,B.c1,B.cX,null]),t.L)
-B.HK=new A.cl(["*",B.FA,"+",B.FB,"-",B.FC,".",B.FD,"/",B.FE,"0",B.EM,"1",B.EN,"2",B.EO,"3",B.EP,"4",B.EQ,"5",B.ER,"6",B.ES,"7",B.ET,"8",B.FL,"9",B.FM,"Alt",B.Fu,"AltGraph",B.FO,"ArrowDown",B.EY,"ArrowLeft",B.EZ,"ArrowRight",B.F_,"ArrowUp",B.Fb,"Clear",B.Fr,"Control",B.Fv,"Delete",B.EK,"End",B.F0,"Enter",B.FF,"Home",B.F1,"Insert",B.Fs,"Meta",B.Fw,"PageDown",B.F2,"PageUp",B.Ft,"Shift",B.Fx],A.W("cl<i,y<f?>>"))
+B.HK=new A.cl(["*",B.FA,"+",B.FB,"-",B.FC,".",B.FD,"/",B.FE,"0",B.EN,"1",B.EO,"2",B.EP,"3",B.EQ,"4",B.ER,"5",B.ES,"6",B.ET,"7",B.EU,"8",B.FL,"9",B.FM,"Alt",B.Fu,"AltGraph",B.FO,"ArrowDown",B.EZ,"ArrowLeft",B.F_,"ArrowRight",B.F0,"ArrowUp",B.Fb,"Clear",B.Fr,"Control",B.Fv,"Delete",B.EL,"End",B.F1,"Enter",B.FF,"Home",B.F2,"Insert",B.Fs,"Meta",B.Fw,"PageDown",B.F3,"PageUp",B.Ft,"Shift",B.Fx],A.W("cl<i,y<f?>>"))
 B.If={multiply:0,screen:1,overlay:2,darken:3,lighten:4,"color-dodge":5,"color-burn":6,"hard-light":7,"soft-light":8,difference:9,exclusion:10,hue:11,saturation:12,color:13,luminosity:14}
 B.xb=new A.d5(24,"multiply")
 B.wT=new A.d5(14,"screen")
@@ -73065,8 +73066,8 @@ B.RP=new A.xM(0,"inside")
 B.RQ=new A.xM(1,"higher")
 B.RR=new A.xM(2,"lower")
 B.BB=new A.V(67108864)
-B.ED=A.a(s([B.BB,B.ab]),t.t_)
-B.RS=new A.hQ(B.ED)
+B.EE=A.a(s([B.BB,B.ab]),t.t_)
+B.RS=new A.hQ(B.EE)
 B.RT=new A.hQ(null)
 B.RU=new A.iV(0,"size")
 B.wj=new A.iV(1,"images")
@@ -73351,7 +73352,7 @@ s($,"aC4","amX",()=>A.aR([B.kz,A.aky("grapheme"),B.kA,A.aky("word")],A.W("uh"),t
 s($,"aDb","anN",()=>A.akB())
 s($,"aDa","anM",()=>{var q=A.A(self.window,"trustedTypes")
 q.toString
-return A.avv(q,"createPolicy",A.atn("flutter-engine"),{createScriptURL:A.agk(new A.aag())})})
+return A.avv(q,"createPolicy",A.atn("flutter-engine"),t.e.a({createScriptURL:A.agk(new A.aag())}))})
 r($,"aDe","anO",()=>self.window.FinalizationRegistry!=null)
 s($,"aC1","amT",()=>B.I.bA(A.aR(["type","fontsChange"],t.N,t.z)))
 s($,"aDn","aeX",()=>{var q=A.akz()
