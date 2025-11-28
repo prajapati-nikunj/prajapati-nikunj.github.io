@@ -10,6 +10,7 @@ import ProtectedProjects from './components/ProtectedProjects';
 import PublicPortfolio from './components/PublicPortfolio';
 import Education from './components/Education';
 import Contact from './components/Contact';
+import VisitorCounter from './components/VisitorCounter';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -209,6 +210,9 @@ function App() {
           <p className="dark:text-gray-500 light:text-gray-600 text-sm mt-2">
             Crafted with ❤️ using React, TypeScript, Tailwind CSS, and Framer Motion.
           </p>
+          <div className="mt-4">
+            <VisitorCounter />
+          </div>
         </div>
       </footer>
 
