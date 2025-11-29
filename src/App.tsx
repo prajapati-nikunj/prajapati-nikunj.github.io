@@ -11,6 +11,8 @@ import PublicPortfolio from './components/PublicPortfolio';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import VisitorCounter from './components/VisitorCounter';
+import ParticlesBackground from './components/ParticlesBackground';
+import GoogleAnalytics from './components/GoogleAnalytics';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,6 +44,17 @@ function App() {
 
   return (
     <div className="relative min-h-screen">
+      {/* Google Analytics */}
+      <GoogleAnalytics />
+
+      {/* Skip to main content - Accessibility */}
+      <a href="#main-content" className="skip-to-main">
+        Skip to main content
+      </a>
+
+      {/* Particles Background */}
+      <ParticlesBackground />
+
       {/* Global animated gradient background */}
       <div className="fixed inset-0 -z-10 transition-colors duration-300 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-950 dark:to-black">
         <div className="absolute inset-0 bg-gradient-to-tr from-primary-200/60 via-transparent to-secondary-200/60 dark:from-primary-950/30 dark:via-transparent dark:to-secondary-950/30 animate-gradient"></div>
@@ -76,7 +89,7 @@ function App() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/5 backdrop-blur-2xl border-b border-white/20 shadow-lg shadow-black/20">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/5 backdrop-blur-2xl border-b border-white/20 shadow-lg shadow-black/20" role="navigation" aria-label="Main navigation">
         <div className="container-custom px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -102,6 +115,7 @@ function App() {
                   key={index}
                   href={item.href}
                   className="text-gray-300 hover:text-primary-400 transition-colors duration-300 font-medium"
+                  aria-label={`Navigate to ${item.name} section`}
                 >
                   {item.name}
                 </a>
@@ -186,7 +200,7 @@ function App() {
       </nav>
 
       {/* Main Content */}
-      <main>
+      <main id="main-content" role="main">
         <Hero />
         <About />
         <Skills />

@@ -49,6 +49,7 @@ export default function Contact() {
                                     <a
                                         href={info.href}
                                         className="text-gray-400 hover:text-primary-400 transition-colors text-sm break-all"
+                                        aria-label={`${info.label}: ${info.value}`}
                                     >
                                         {info.value}
                                     </a>
@@ -76,8 +77,9 @@ export default function Contact() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={`flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-300 border border-white/10 hover:border-white/20 ${social.color}`}
+                                aria-label={`Visit my ${social.label} profile`}
                             >
-                                <social.icon size={20} />
+                                <social.icon size={20} aria-hidden="true" />
                                 <span>{social.label}</span>
                             </a>
                         ))}
@@ -95,7 +97,7 @@ export default function Contact() {
                         </Button>
                     </div> */}
                 </motion.div>
-            </div>
-        </Section>
+            </div >
+        </Section >
     );
 }

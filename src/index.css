@@ -54,6 +54,46 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Accessibility - Focus Styles */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+a:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+button:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.1);
+}
+
+/* Skip to main content link */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1em;
+  background-color: #3b82f6;
+  color: white;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-to-main:focus {
+  left: 0;
+  top: 0;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -64,5 +104,18 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+  
+  *:focus-visible {
+    outline-color: #3b82f6;
+  }
+  
+  a:focus-visible,
+  button:focus-visible {
+    outline-color: #3b82f6;
+  }
+  
+  button:focus-visible {
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
   }
 }
