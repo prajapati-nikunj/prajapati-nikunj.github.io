@@ -7,6 +7,12 @@ import Badge from './ui/Badge';
 export default function PublicPortfolio() {
     const publicProjects = [
         {
+            name: 'Ghost',
+            url: 'https://github.com/prajapati-nikunj/Ghost',
+            description: 'AI-Native Software Factory - A fully AI-driven software production system',
+            tags: ['AI', 'Software Factory', 'Automation', 'Open Source']
+        },
+        {
             name: 'Essentials',
             url: 'https://github.com/prajapati-nikunj/Essentials',
             description: 'A comprehensive collection of essential SwiftUI Controls and Indicators',

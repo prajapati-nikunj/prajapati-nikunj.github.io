@@ -46,6 +46,7 @@ export interface Education {
 export interface Certification {
     name: string;
     issuer: string;
+    issueDate?: string;
 }
 
 export interface Award {
@@ -340,14 +341,17 @@ export const education: Education[] = [
 ];
 
 export const certifications: Certification[] = [
-    { name: "Foundational C# with Microsoft", issuer: "freeCodeCamp" },
-    { name: "JavaScript Algorithms and Data Structures", issuer: "freeCodeCamp" },
-    { name: "Python (Basic) Certificate", issuer: "HackerRank" },
+    { name: "Building with the Claude API", issuer: "Anthropic", issueDate: "Mar 2026" },
+    { name: "Claude Code in Action", issuer: "Anthropic", issueDate: "Feb 2026" },
+    { name: "Claude 101", issuer: "Anthropic", issueDate: "Feb 2026" },
+    { name: "Foundational C# with Microsoft", issuer: "freeCodeCamp", issueDate: "Oct 2023" },
+    { name: "JavaScript Algorithms and Data Structures", issuer: "freeCodeCamp", issueDate: "Sep 2023" },
+    { name: "Python (Basic) Certificate", issuer: "HackerRank", issueDate: "Sep 2022" },
+    { name: "Javascript", issuer: "ILDC IndiaNIC", issueDate: "Jun 2022" },
+    { name: "IOS Application Developer", issuer: "ILDC IndiaNIC", issueDate: "Nov 2015" },
+    { name: "Professional .Net Developer", issuer: "NVPAS", issueDate: "Mar 2010" },
     { name: "Flutter begening", issuer: "Great Learning" },
-    { name: "Data Science Foundations", issuer: "Great Learning" },
-    { name: "Professional iOS Application Developer", issuer: "ILDC IndiaNIC" },
-    { name: "Professional .Net Developer", issuer: "NVPAS" },
-    { name: "Javascript", issuer: "ILDC IndiaNIC" }
+    { name: "Data Science Foundations", issuer: "Great Learning" }
 ];
 
 export const awards: Award[] = [
