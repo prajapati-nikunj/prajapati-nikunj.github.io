@@ -60,22 +60,6 @@ npm run deploy
 2. **Automatic Deployment**:
 Push to main branch - GitHub Actions will automatically build and deploy.
 
-### 🔐 Firebase & GitHub Secrets Setup
-
-To make the visitor counter work on the live site, you must add your Firebase keys to GitHub Secrets:
-
-1. Go to **Settings** > **Secrets and variables** > **Actions** in your GitHub repo.
-2. Add the following secrets (copy values from your local `.env`):
-   - `VITE_FIREBASE_API_KEY`
-   - `VITE_FIREBASE_AUTH_DOMAIN`
-   - `VITE_FIREBASE_PROJECT_ID`
-   - `VITE_FIREBASE_STORAGE_BUCKET`
-   - `VITE_FIREBASE_MESSAGING_SENDER_ID`
-   - `VITE_FIREBASE_APP_ID`
-   - `VITE_GA_MEASUREMENT_ID`
-
-**Note:** The visitor counter requires Firestore Database to be enabled in your Firebase Console with appropriate security rules.
-
 ## 📁 Project Structure
 
 ```
