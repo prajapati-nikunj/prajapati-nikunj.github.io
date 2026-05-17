@@ -13,6 +13,12 @@ export default function PublicPortfolio() {
             tags: ['AI', 'Software Factory', 'Automation', 'Open Source']
         },
         {
+            name: 'Nivasya',
+            url: 'https://github.com/prajapati-nikunj/Nivasya',
+            description: 'Luxury Real Estate Application built with modern SwiftUI Clean Architecture',
+            tags: ['SwiftUI', 'iOS', 'Clean Architecture', 'Real Estate']
+        },
+        {
             name: 'Essentials',
             url: 'https://github.com/prajapati-nikunj/Essentials',
             description: 'A comprehensive collection of essential SwiftUI Controls and Indicators',
@@ -27,7 +33,7 @@ export default function PublicPortfolio() {
     ];
 
     return (
-        <Section id="projects" title="Public Portfolio" subtitle="Open Source & Public Projects">
+        <Section id="portfolio" title="Public Portfolio" subtitle="Open Source & Public Projects">
             <div className="grid md:grid-cols-2 gap-6 mb-8">
                 {publicProjects.map((project, index) => (
                     <motion.div

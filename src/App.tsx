@@ -17,6 +17,7 @@ import GoogleAnalytics from './components/GoogleAnalytics';
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [activeSection, setActiveSection] = useState('Home');
   const { theme, toggleTheme } = useTheme();
 
   const navItems = [
@@ -24,7 +25,7 @@ function App() {
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'Projects', href: '#portfolio' },
     { name: 'Education', href: '#education' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -32,10 +33,50 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 500);
+      
+      // Auto-set Home when at the very top
+      if (window.scrollY < 100) {
+        setActiveSection('Home');
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // IntersectionObserver scroll spy
+    const sections = navItems
+      .map(item => item.href.replace('#', ''))
+      .filter(Boolean); // ['about', 'skills', 'experience', 'portfolio', 'education', 'contact']
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-40% 0px -45% 0px', // detects active section dynamically in middle of screen
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          const matchedItem = navItems.find(item => item.href === `#${id}`);
+          if (matchedItem) {
+            setActiveSection(matchedItem.name);
+          }
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) observer.unobserve(el);
+      });
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -110,16 +151,31 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              {navItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.href}
-                  className="text-gray-300 hover:text-primary-400 transition-colors duration-300 font-medium"
-                  aria-label={`Navigate to ${item.name} section`}
-                >
-                  {item.name}
-                </a>
-              ))}
+              {navItems.map((item, index) => {
+                const isActive = activeSection === item.name;
+                return (
+                  <a
+                    key={index}
+                    href={item.href}
+                    onClick={() => setActiveSection(item.name)}
+                    className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
+                      isActive
+                        ? 'text-primary-600 dark:text-white font-semibold'
+                        : 'text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-white'
+                    }`}
+                    aria-label={`Navigate to ${item.name} section`}
+                  >
+                    {isActive && (
+                      <motion.span
+                        layoutId="activeNavDesktop"
+                        className="absolute inset-0 bg-black/5 dark:bg-white/10 backdrop-blur-md border border-black/10 dark:border-white/15 rounded-full z-0"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                    <span className="relative z-10">{item.name}</span>
+                  </a>
+                );
+              })}
             </motion.div>
 
             {/* Theme Toggle */}
@@ -183,16 +239,26 @@ function App() {
                   </div>
                 </button>
 
-                {navItems.map((item, index) => (
-                  <a
-                    key={index}
-                    href={item.href}
-                    className="block py-3 px-4 text-gray-300 hover:text-primary-400 hover:bg-white/5 rounded-lg transition-all duration-300"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                ))}
+                {navItems.map((item, index) => {
+                  const isActive = activeSection === item.name;
+                  return (
+                    <a
+                      key={index}
+                      href={item.href}
+                      className={`block py-3 px-4 rounded-lg font-medium transition-all duration-300 ${
+                        isActive
+                          ? 'bg-primary-500/25 dark:bg-white/10 text-primary-600 dark:text-white border border-primary-500/20 dark:border-white/20'
+                          : 'text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-white hover:bg-white/5'
+                      }`}
+                      onClick={() => {
+                        setActiveSection(item.name);
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      {item.name}
+                    </a>
+                  );
+                })}
               </div>
             </motion.div>
           )}
