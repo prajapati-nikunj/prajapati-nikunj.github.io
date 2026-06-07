@@ -5,7 +5,22 @@ import Card from './ui/Card';
 import Badge from './ui/Badge';
 
 export default function PublicPortfolio() {
-    const publicProjects = [
+    const publicProjects: Array<{
+        name: string;
+        url: string;
+        description: string;
+        tags: string[];
+        caseStudy?: string;
+        logo?: string;
+    }> = [
+        {
+            name: 'Lumina Sun',
+            url: 'https://github.com/prajapati-nikunj/Lumina-Sun',
+            caseStudy: '/lumina-sun.html',
+            logo: '/lumina-sun/mark.png',
+            description: 'Solar Intelligence Platform — UX case study transforming solar assets into intelligent energy investments',
+            tags: ['UX Case Study', 'Solar', 'Product Design', 'Web']
+        },
         {
             name: 'Ghost',
             url: 'https://github.com/prajapati-nikunj/Ghost',
@@ -46,7 +61,15 @@ export default function PublicPortfolio() {
                         <Card className="h-full flex flex-col hover:ring-2 hover:ring-primary-500 transition-all duration-300">
                             <div className="flex items-start justify-between mb-4">
                                 <div className="flex items-center gap-2">
-                                    <FaGithub className="text-primary-400" size={24} />
+                                    {project.logo ? (
+                                        <img
+                                            src={project.logo}
+                                            alt={`${project.name} logo`}
+                                            className="w-7 h-7 rounded-md object-contain bg-white/5"
+                                        />
+                                    ) : (
+                                        <FaGithub className="text-primary-400" size={24} />
+                                    )}
                                     <h3 className="text-xl font-bold dark:text-white light:text-gray-900">
                                         {project.name}
                                     </h3>
@@ -74,15 +97,28 @@ export default function PublicPortfolio() {
                                 ))}
                             </div>
 
-                            <a
-                                href={project.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="mt-4 inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-medium transition-colors"
-                            >
-                                View on GitHub
-                                <FaExternalLinkAlt size={14} />
-                            </a>
+                            <div className="mt-4 flex flex-wrap items-center gap-4">
+                                <a
+                                    href={project.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-medium transition-colors"
+                                >
+                                    View on GitHub
+                                    <FaExternalLinkAlt size={14} />
+                                </a>
+                                {project.caseStudy && (
+                                    <a
+                                        href={project.caseStudy}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 text-secondary-400 hover:text-secondary-300 font-medium transition-colors"
+                                    >
+                                        View Case Study
+                                        <FaExternalLinkAlt size={14} />
+                                    </a>
+                                )}
+                            </div>
                         </Card>
                     </motion.div>
                 ))}

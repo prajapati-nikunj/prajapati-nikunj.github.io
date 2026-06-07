@@ -6,6 +6,7 @@ export interface PersonalInfo {
     location: string;
     linkedin: string;
     github: string;
+    twitter: string;
     website: string;
     summary: string;
 }
@@ -72,8 +73,9 @@ export const personalInfo: PersonalInfo = {
     email: "nikunjprajapati09@gmail.com",
     phone: "",
     location: "🇮🇳 India",
-    linkedin: "http://linkedin.com/in/nikunjprajapati",
+    linkedin: "https://www.linkedin.com/in/nikunjprajapati/",
     github: "https://github.com/prajapati-nikunj",
+    twitter: "https://x.com/Nikunj_07",
     website: "https://prajapati-nikunj.github.io",
     summary: "Dedicated and results-driven iOS Developer with 9+ years of professional experience in building robust, scalable, and high-performance mobile applications using Swift, SwiftUI, and modern iOS architectures. I excel at guiding teams, improving engineering processes, conducting detailed code reviews, and architecting solutions that align with both technical and business goals. My focus lies in combining innovation with practicality to deliver impactful products."
 };
