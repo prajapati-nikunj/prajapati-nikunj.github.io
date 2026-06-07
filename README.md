@@ -1,6 +1,8 @@
-# Nikunj Prajapati - Portfolio
+# Nikunj Prajapati
 
-A modern, responsive portfolio website showcasing my work as a Lead iOS Software Engineer.
+<img width="1536" height="1024" alt="bee806b4-93cc-4b9e-b6db-6c305ec64ad4" src="https://github.com/user-attachments/assets/0461cd98-115b-4b0c-9dec-659c90bd86e0" />
+
+A modern, responsive portfolio website showcasing my work as a Lead Software Engineer  | Solution Architect | Scalable System - SaaS | AI-First Mobile & Platform Architect | High-Performance Mobile Systems | Swift Ecosystem • Cross-Platform • Cloud-Native • System Design.
 
 ## 🚀 Tech Stack
 
@@ -102,3 +104,6 @@ To customize the portfolio with your own information:
 - Email: np9199@gmail.com
 - LinkedIn: [nikunjprajapati](http://linkedin.com/in/nikunjprajapati)
 - GitHub: [prajapati-nikunj](https://github.com/prajapati-nikunj)
+
+<img width="1758" height="894" alt="bf7bfb59-f703-48f2-9e42-2a816c912d5b" src="https://github.com/user-attachments/assets/94cefb5b-8e5c-4395-866a-f7feb894a069" />
+
