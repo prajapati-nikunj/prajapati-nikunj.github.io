@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import { personalInfo } from '../data/portfolio';
 import Section from './ui/Section';
 import Card from './ui/Card';
@@ -13,6 +14,7 @@ export default function Contact() {
     const socialLinks = [
         { icon: FaLinkedin, label: 'LinkedIn', href: personalInfo.linkedin, color: 'text-blue-400' },
         { icon: FaGithub, label: 'GitHub', href: personalInfo.github, color: 'text-gray-400' },
+        { icon: FaXTwitter, label: 'X', href: personalInfo.twitter, color: 'text-gray-200' },
     ];
 
     return (
