@@ -14,6 +14,14 @@ export default function PublicPortfolio() {
         logo?: string;
     }> = [
         {
+            name: 'Lumen',
+            url: 'https://github.com/prajapati-nikunj/Lumen',
+            caseStudy: '/lumen.html',
+            logo: '/lumen/Lumen-removebg.png',
+            description: 'Adaptive E-Learning Platform — SwiftUI app with Clean Architecture, AI Tutor, live mentors and adaptive courses. Empowering Future Generations.',
+            tags: ['SwiftUI', 'iOS 26', 'Clean Architecture', 'MVVM', 'E-Learning', 'AI']
+        },
+        {
             name: 'Lumina Sun',
             url: 'https://github.com/prajapati-nikunj/Lumina-Sun',
             caseStudy: '/lumina-sun.html',

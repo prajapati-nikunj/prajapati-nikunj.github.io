@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumen — Adaptive Learning Platform · Product Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e1a18; --bg-deep:#0b1715; --bg-darker:#081311;
+  --white:#ffffff;
+  --teal:#16c4a9; --teal2:#34d6c0; --teal-deep:#0c9a83; --teal-tint:#dbf4ee;
+  --mint:#d3efe8; --mint2:#e6f7f2;
+  --butter:#f6edc9; --butter2:#fbf6e1;
+  --blush:#f5d9e2; --blush2:#fbe9ee;
+  --lilac:#e3def4; --lilac2:#f0edf9;
+  --sky:#d6ebf6; --sky2:#e9f4fb;
+  --violet:#8b7be8; --rose:#ef8fb0; --amber:#f0b65c;
+  --success:#16c784;
+  --light:#f7fbfa; --ink:#1b2530; --ink-soft:#5d6b78; --line:#e6ecec;
+
+  --grad:linear-gradient(135deg,#16c4a9 0%,#34d6c0 100%);
+  --grad-warm:linear-gradient(90deg,#34d6c0,#8be8c8);
+  --grad-soft:linear-gradient(140deg,#dbf4ee,#bff0e0);
+  --glass:rgba(255,255,255,.06);
+  --glass-line:rgba(255,255,255,.12);
+
+  --display:"Inter Tight",-apple-system,"SF Pro Display",sans-serif;
+  --body:"Inter",-apple-system,sans-serif;
+
+  --r:16px; --r-lg:24px; --r-xl:34px;
+  --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg-deep);color:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55}
+img{max-width:100%}
+section{position:relative;scroll-margin-top:72px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.display{font-family:var(--display);letter-spacing:-.03em;line-height:1.02}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ============ LOGO ============ */
+.lmark{width:42px;height:42px;flex:none}
+.lmark.lg{width:88px;height:88px}
+.lockup{display:flex;align-items:center;gap:13px}
+.lockup .name{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.01em}
+.lockup .name b{font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Brand mark image — gold "LUMEN" wordmark with sunburst rays
+   Boosted brightness + layered gold glow so the wordmark reads luxe on dark gradients */
+.brand-img{
+  height:48px;width:auto;flex:none;display:block;object-fit:contain;
+  filter:
+    brightness(1.45) saturate(1.15) contrast(1.08)
+    drop-shadow(0 0 6px rgba(255,220,150,.85))
+    drop-shadow(0 0 14px rgba(240,200,120,.6))
+    drop-shadow(0 0 28px rgba(220,178,108,.45));
+  transition:filter .5s ease, transform .35s ease;
+}
+.brand-link:hover .brand-img{
+  filter:
+    brightness(1.6) saturate(1.25) contrast(1.1)
+    drop-shadow(0 0 8px rgba(255,225,160,.95))
+    drop-shadow(0 0 22px rgba(245,205,125,.75))
+    drop-shadow(0 0 42px rgba(225,180,108,.55));
+  transform:translateY(-1px);
+}
+.brand-img.lg{height:140px}
+.brand-img.xl{
+  height:220px;
+  filter:
+    brightness(1.5) saturate(1.18) contrast(1.1)
+    drop-shadow(0 0 14px rgba(255,225,160,.9))
+    drop-shadow(0 0 40px rgba(245,205,125,.7))
+    drop-shadow(0 0 80px rgba(225,180,108,.55))
+    drop-shadow(0 0 140px rgba(220,178,108,.35));
+  animation:lumenGlow 4.5s ease-in-out infinite;
+}
+@keyframes lumenGlow{
+  0%,100%{
+    filter:
+      brightness(1.5) saturate(1.18) contrast(1.1)
+      drop-shadow(0 0 14px rgba(255,225,160,.9))
+      drop-shadow(0 0 40px rgba(245,205,125,.7))
+      drop-shadow(0 0 80px rgba(225,180,108,.55))
+      drop-shadow(0 0 140px rgba(220,178,108,.35));
+  }
+  50%{
+    filter:
+      brightness(1.7) saturate(1.25) contrast(1.12)
+      drop-shadow(0 0 18px rgba(255,232,170,1))
+      drop-shadow(0 0 52px rgba(250,210,130,.85))
+      drop-shadow(0 0 100px rgba(230,185,115,.65))
+      drop-shadow(0 0 160px rgba(220,178,108,.45));
+  }
+}
+.brand-link{display:flex;align-items:center;gap:10px;text-decoration:none}
+
+/* ============ NAV ============ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:.35s;background:transparent;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,23,21,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--glass-line);padding:11px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between}
+.nav .links{display:flex;gap:30px;align-items:center}
+.nav .links a{color:rgba(255,255,255,.66);text-decoration:none;font-size:13.5px;font-weight:500;transition:.2s}
+.nav .links a:hover{color:#fff}
+.nav .cta{background:var(--grad);color:#fff;padding:11px 20px;border-radius:30px;font-size:13.5px;font-weight:700;text-decoration:none;box-shadow:0 10px 24px -10px rgba(22,196,169,.7)}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:101}
+@media(max-width:860px){.nav .links{display:none}}
+
+/* ============ HERO ============ */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;
+  background:radial-gradient(120% 90% at 70% -10%,#1f3a35 0%,#13241f 40%,#0b1715 100%)}
+#particles{position:absolute;inset:0;z-index:0}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:repeating-linear-gradient(64deg,rgba(255,255,255,.025) 0 1px,transparent 1px 70px)}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;padding-top:120px;padding-bottom:60px}
+.badge-pill{display:inline-flex;align-items:center;gap:8px;background:var(--glass);border:1px solid var(--glass-line);
+  padding:8px 16px;border-radius:30px;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.85);margin-bottom:26px}
+.badge-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal)}
+.hero h1{font-size:clamp(40px,5.4vw,68px);font-weight:800;margin-bottom:22px}
+.hero p.sub{font-size:clamp(16px,1.6vw,19px);color:rgba(255,255,255,.66);max-width:46ch;margin-bottom:34px}
+.hero .actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{border:none;cursor:pointer;font-family:var(--body);font-weight:600;font-size:15px;border-radius:30px;padding:15px 28px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:.25s}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 16px 32px -12px rgba(22,196,169,.7)}
+.btn-primary:hover{transform:translateY(-3px)}
+.btn-ghost{background:var(--glass);border:1px solid var(--glass-line);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.hero-stats{display:flex;gap:30px;margin-top:46px;flex-wrap:wrap}
+.hero-stats .hs b{font-family:var(--display);font-weight:800;font-size:28px;display:block}
+.hero-stats .hs span{font-size:12.5px;color:rgba(255,255,255,.5)}
+
+/* hero ecosystem panel */
+.eco{position:relative;background:var(--glass);border:1px solid var(--glass-line);border-radius:var(--r-xl);padding:26px;backdrop-filter:blur(20px);box-shadow:0 40px 90px -40px rgba(0,0,0,.8)}
+.eco .eco-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.eco .eco-head .t{font-family:var(--display);font-weight:700;font-size:16px}
+.eco .live{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--teal2)}
+.eco .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.flow{position:relative;height:230px;margin:6px 0 14px}
+.flow svg{width:100%;height:100%}
+.flow .fnode{position:absolute;background:rgba(40,55,52,.85);border:1px solid var(--glass-line);border-radius:14px;padding:9px 13px;text-align:center;backdrop-filter:blur(6px);min-width:74px}
+.flow .fnode .ic{width:24px;height:24px;margin:0 auto 5px;display:grid;place-items:center;border-radius:7px;background:rgba(255,255,255,.08);color:var(--teal2)}
+.flow .fnode.sun .ic{background:var(--grad);color:#fff}
+.flow .fnode b{font-family:var(--display);font-weight:700;font-size:14px;display:block}
+.flow .fnode small{font-size:9px;color:rgba(255,255,255,.5)}
+.flow .n-sun{top:0;left:50%;transform:translateX(-50%)}
+.flow .n-bat{top:92px;left:0}
+.flow .n-grid{top:92px;right:0}
+.flow .n-home{bottom:0;left:50%;transform:translateX(-50%)}
+.eco .metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.eco .metrics .m{background:rgba(255,255,255,.04);border:1px solid var(--glass-line);border-radius:14px;padding:12px 13px}
+.eco .metrics .m small{font-size:10.5px;color:rgba(255,255,255,.5);display:block;margin-bottom:3px}
+.eco .metrics .m b{font-family:var(--display);font-weight:700;font-size:19px}
+.eco .metrics .m b i{font-size:11px;font-style:normal;color:rgba(255,255,255,.5)}
+.flowline{stroke-dasharray:6 8;animation:dash 1.1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-28}}
+@media(max-width:880px){.hero .wrap{grid-template-columns:1fr}}
+
+/* ============ SECTION SCAFFOLD ============ */
+.sec{padding:110px 0}
+.sec.light{background:var(--light);color:var(--ink)}
+.sec.dark{background:var(--bg-darker)}
+.sec.mid{background:var(--bg-deep)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--teal2)}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--grad);border-radius:2px}
+.sec .head{max-width:760px;margin-bottom:54px}
+.sec h2{font-family:var(--display);font-weight:800;font-size:clamp(30px,4.2vw,50px);margin:18px 0 16px}
+.sec .lead{font-size:18px;color:var(--ink-soft);max-width:60ch}
+.sec.dark .lead,.sec.mid .lead{color:rgba(255,255,255,.62)}
+.num-step{font-family:var(--display);font-weight:800;font-size:13px;color:var(--teal-deep);letter-spacing:.04em}
+
+/* ============ CHALLENGE ============ */
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pain{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;transition:.3s}
+.pain:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(0,0,0,.15)}
+.pain .pic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;background:var(--teal-tint);color:var(--teal-deep);margin-bottom:18px}
+.pain h4{font-family:var(--display);font-weight:700;font-size:18px;margin-bottom:9px}
+.pain p{font-size:14.5px;color:var(--ink-soft)}
+@media(max-width:860px){.pain-grid{grid-template-columns:1fr}}
+
+/* ============ SOLUTION FEATURES ============ */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feat{position:relative;background:var(--glass);border:1px solid var(--glass-line);border-radius:var(--r-lg);padding:28px;overflow:hidden;transition:.3s}
+.feat:hover{transform:translateY(-6px);border-color:rgba(52,214,192,.4)}
+.feat::before{content:"";position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:var(--grad);filter:blur(50px);opacity:.25}
+.feat .fic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--grad);color:#fff;margin-bottom:18px;position:relative;box-shadow:0 12px 24px -12px rgba(22,196,169,.7)}
+.feat h4{font-family:var(--display);font-weight:700;font-size:18px;margin-bottom:9px}
+.feat p{font-size:14.5px;color:rgba(255,255,255,.6)}
+@media(max-width:860px){.feat-grid{grid-template-columns:1fr}}
+
+/* ============ SPLIT / KPI ============ */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+.split.rev{direction:rtl}.split.rev>*{direction:ltr}
+.kpi-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.kpi{flex:1;min-width:130px;background:var(--glass);border:1px solid var(--glass-line);border-radius:var(--r);padding:18px}
+.sec.light .kpi{background:#fff;border-color:var(--line)}
+.kpi b{font-family:var(--display);font-weight:800;font-size:30px;display:block}
+.kpi small{font-size:12px;color:var(--ink-soft)}
+.sec.dark .kpi small,.sec.mid .kpi small{color:rgba(255,255,255,.5)}
+.dash-card{background:#fff;color:var(--ink);border-radius:var(--r-xl);padding:24px;box-shadow:0 50px 90px -40px rgba(0,0,0,.5)}
+.dash-card .dc-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.dash-card .dc-head b{font-family:var(--display);font-weight:700;font-size:16px}
+
+/* course library showcase */
+.lib-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:8px}
+.cc{position:relative;border-radius:18px;padding:16px;min-height:120px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid rgba(255,255,255,.65)}
+.cc .arr{position:absolute;top:12px;right:12px;width:28px;height:28px;border-radius:9px;background:rgba(255,255,255,.7);display:grid;place-items:center;color:var(--ink)}
+.cc .ico{width:36px;height:36px;border-radius:11px;background:rgba(255,255,255,.6);display:grid;place-items:center;color:var(--ink)}
+.cc .tt{font-family:var(--display);font-weight:700;font-size:14px;color:var(--ink);line-height:1.15}
+.cc .meta{font-size:11px;color:var(--ink-soft);font-weight:600}
+.cc .bar{height:5px;border-radius:99px;background:rgba(255,255,255,.55);overflow:hidden;margin-top:6px}
+.cc .bar i{display:block;height:100%;background:var(--teal-deep);border-radius:99px}
+.cc.mint{background:linear-gradient(140deg,var(--mint2),var(--mint))}
+.cc.butter{background:linear-gradient(140deg,var(--butter2),var(--butter))}
+.cc.blush{background:linear-gradient(140deg,var(--blush2),var(--blush))}
+.cc.lilac{background:linear-gradient(140deg,var(--lilac2),var(--lilac))}
+@media(max-width:880px){.split{grid-template-columns:1fr}.split.rev{direction:ltr}}
+
+/* ============ AI TUTOR SHOWCASE ============ */
+.ai-wrap{background:var(--glass);border:1px solid var(--glass-line);border-radius:var(--r-xl);padding:30px;backdrop-filter:blur(16px)}
+.bubble{max-width:78%;padding:13px 16px;border-radius:18px;font-size:13.5px;line-height:1.55;margin-bottom:10px}
+.bubble.ai{background:rgba(255,255,255,.07);border:1px solid var(--glass-line);border-bottom-left-radius:6px;color:#fff}
+.bubble.me{margin-left:auto;background:var(--grad);color:#fff;border-bottom-right-radius:6px}
+.suggest{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.suggest .s{background:rgba(22,196,169,.16);color:var(--teal2);font-size:12px;font-weight:700;padding:8px 13px;border-radius:14px;border:1px solid rgba(22,196,169,.25)}
+.tutor-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.tutor-stats .st{background:rgba(255,255,255,.04);border:1px solid var(--glass-line);border-radius:14px;padding:14px}
+.tutor-stats .st small{font-size:11px;color:rgba(255,255,255,.5);display:block;margin-bottom:5px}
+.tutor-stats .st b{font-family:var(--display);font-weight:800;font-size:21px}
+
+/* ============ MENTORS GRID ============ */
+.mentor-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.mentor{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;text-align:center;transition:.3s}
+.mentor:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(0,0,0,.18)}
+.mentor .av{width:74px;height:74px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;color:#fff;font-family:var(--display);font-weight:800;font-size:24px;box-shadow:inset 0 0 0 3px rgba(255,255,255,.55)}
+.mentor .av.teal{background:linear-gradient(145deg,#19c9ad,#3ad9c4)}
+.mentor .av.violet{background:linear-gradient(145deg,#8b7be8,#b3a4f5)}
+.mentor .av.rose{background:linear-gradient(145deg,#ef8fb0,#f7b6cd)}
+.mentor .av.amber{background:linear-gradient(145deg,#f0b65c,#f6d28a)}
+.mentor h5{font-family:var(--display);font-weight:700;font-size:16px;color:var(--ink)}
+.mentor .role{font-size:12px;color:var(--ink-soft);margin:4px 0 10px}
+.mentor .rating{font-family:var(--display);font-weight:700;font-size:13px;color:var(--teal-deep)}
+@media(max-width:860px){.mentor-grid{grid-template-columns:1fr 1fr}}
+
+/* ============ FINANCE / IMPACT NUMBERS ============ */
+.bigstat{text-align:center;padding:50px 0 10px}
+.bigstat .n{font-family:var(--display);font-weight:900;font-size:clamp(54px,10vw,110px);line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bigstat .l{color:rgba(255,255,255,.6);font-size:16px;margin-top:10px;letter-spacing:.02em}
+.fin-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:50px}
+.fin-card{background:var(--glass);border:1px solid var(--glass-line);border-radius:var(--r-lg);padding:22px}
+.fin-card .lbl{font-size:12.5px;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:7px}
+.fin-card .v{font-family:var(--display);font-weight:800;font-size:30px;margin:10px 0 6px}
+.fin-card .chg{font-size:12.5px;font-weight:700;color:var(--success)}
+@media(max-width:860px){.fin-grid{grid-template-columns:1fr 1fr}}
+
+/* ============ ANALYTICS ============ */
+.tabs{display:inline-flex;gap:6px;background:#fff;border:1px solid var(--line);border-radius:30px;padding:6px;margin-bottom:30px}
+.tabs button{border:none;background:transparent;padding:10px 22px;border-radius:24px;font-family:var(--body);font-weight:600;font-size:14px;color:var(--ink-soft);cursor:pointer;transition:.2s}
+.tabs button.active{background:var(--ink);color:#fff}
+.perf-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:18px;align-items:start}
+.chart-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:26px;box-shadow:0 30px 60px -40px rgba(0,0,0,.18)}
+.chart-card .ch-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:18px}
+.chart-card .ch-head b{font-family:var(--display);font-weight:800;font-size:30px}
+.anomaly{display:flex;flex-direction:column;gap:12px}
+.alert-c{background:#fff;border:1px solid var(--line);border-left:4px solid;border-radius:14px;padding:16px 18px;display:flex;gap:13px;align-items:flex-start}
+.alert-c.warn{border-left-color:var(--rose)}
+.alert-c.yel{border-left-color:var(--amber)}
+.alert-c.blu{border-left-color:var(--teal-deep)}
+.alert-c .ic{width:34px;height:34px;flex:none;border-radius:10px;display:grid;place-items:center;color:#fff}
+.alert-c.warn .ic{background:var(--rose)}.alert-c.yel .ic{background:var(--amber)}.alert-c.blu .ic{background:var(--teal-deep)}
+.alert-c h5{font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink)}
+.alert-c p{font-size:13px;color:var(--ink-soft);margin-top:2px}
+@media(max-width:860px){.perf-grid{grid-template-columns:1fr}}
+
+/* ============ INTEL CARDS ============ */
+.intel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.intel{background:var(--glass);border:1px solid var(--glass-line);border-radius:var(--r-lg);padding:24px;position:relative;overflow:hidden}
+.intel::after{content:"";position:absolute;bottom:-30px;left:-30px;width:100px;height:100px;border-radius:50%;background:var(--teal);filter:blur(50px);opacity:.18}
+.intel .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:rgba(22,196,169,.16);color:var(--teal2);margin-bottom:16px}
+.intel h4{font-family:var(--display);font-weight:700;font-size:16px;margin-bottom:8px}
+.intel p{font-size:13.5px;color:rgba(255,255,255,.6)}
+.intel .v{font-family:var(--display);font-weight:800;font-size:24px;margin-top:14px}
+@media(max-width:860px){.intel-grid{grid-template-columns:1fr 1fr}}
+
+/* ============ DESIGN SYSTEM ============ */
+.ds-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.ds{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:24px}
+.ds h4{font-family:var(--display);font-weight:700;font-size:14px;color:var(--ink);margin-bottom:16px;text-transform:uppercase;letter-spacing:.08em}
+.ds.col-7{grid-column:span 7}.ds.col-5{grid-column:span 5}.ds.col-6{grid-column:span 6}.ds.col-4{grid-column:span 4}.ds.col-8{grid-column:span 8}.ds.col-12{grid-column:span 12}
+.colorrow{display:flex;gap:10px;flex-wrap:wrap}
+.colorchip{flex:1;min-width:88px}
+.colorchip .sw{height:62px;border-radius:12px;border:1px solid var(--line)}
+.colorchip code{font-size:11px;color:var(--ink-soft);display:block;margin-top:7px}
+.colorchip span{font-size:12px;font-weight:700;color:var(--ink);display:block}
+.type-spec div{display:flex;align-items:baseline;gap:14px;border-bottom:1px dashed var(--line);padding:10px 0}
+.type-spec .px{font-size:12px;color:var(--ink-soft);width:62px;flex:none}
+.btnset{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.b-pri{background:var(--grad);color:#fff;border:none;border-radius:12px;padding:12px 20px;font-weight:600;font-size:14px;font-family:var(--body);box-shadow:0 10px 18px -10px rgba(22,196,169,.65)}
+.b-dk{background:var(--ink);color:#fff;border:none;border-radius:12px;padding:12px 20px;font-weight:600;font-size:14px;font-family:var(--body)}
+.b-gh{background:#fff;border:1px solid var(--line);color:var(--ink);border-radius:12px;padding:12px 20px;font-weight:600;font-size:14px;font-family:var(--body)}
+.inp{display:block;width:100%;border:1px solid var(--line);border-radius:12px;padding:13px 15px;font-family:var(--body);font-size:14px;color:var(--ink);margin-top:10px}
+.inp:focus{outline:none;border-color:var(--teal)}
+.iconrow{display:flex;gap:10px;flex-wrap:wrap}
+.iconrow .ib{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--light);border:1px solid var(--line);color:var(--teal-deep)}
+.spacing{display:flex;gap:14px;align-items:flex-end}
+.spacing .sp{background:var(--grad);border-radius:4px;width:24px}
+.spacing .sp span{display:block;text-align:center;font-size:10px;color:var(--ink-soft);margin-top:6px}
+.theme-row{display:flex;gap:10px;flex-wrap:wrap}
+.theme-chip{flex:1;min-width:88px;border-radius:14px;padding:10px;background:#fff;border:1px solid var(--line)}
+.theme-chip .prev{height:42px;border-radius:10px;display:flex;align-items:flex-end;padding:6px;gap:4px}
+.theme-chip .prev i{width:13px;height:13px;border-radius:50%;border:1.5px solid rgba(255,255,255,.85)}
+.theme-chip .nm{font-size:11px;font-weight:700;color:var(--ink);margin-top:8px;text-align:center}
+@media(max-width:860px){.ds-grid{grid-template-columns:1fr}.ds[class*=col-]{grid-column:span 1}}
+
+/* ============ MOBILE EXPERIENCE (real screenshots) ============ */
+.dev-rail{position:relative;margin:0 -32px;padding:14px 0 50px}
+.dev-rail-inner{display:flex;gap:36px;overflow-x:auto;padding:14px 60px 30px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.dev-rail-inner::-webkit-scrollbar{display:none}
+.dev{flex:none;width:260px;scroll-snap-align:center;transition:.45s cubic-bezier(.2,.7,.2,1)}
+.dev:hover{transform:translateY(-10px)}
+.phone-real{position:relative;width:260px;height:548px;border-radius:48px;padding:11px;
+  background:linear-gradient(155deg,#43434a 0%,#16161a 55%,#0a0a0c 100%);
+  box-shadow:0 60px 120px -45px rgba(0,0,0,.85), inset 0 0 0 2px rgba(255,255,255,.07), inset 0 2px 3px rgba(255,255,255,.18)}
+.phone-real .notch-real{position:absolute;top:20px;left:50%;transform:translateX(-50%);width:90px;height:28px;background:#000;border-radius:16px;z-index:6;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
+.phone-real .shot{width:100%;height:100%;border-radius:38px;overflow:hidden;object-fit:cover;object-position:top;display:block;background:#fff}
+.dev-cap-real{text-align:center;color:rgba(255,255,255,.55);margin-top:18px;font-size:13px;font-weight:600;padding:0 14px}
+.dev-cap-real b{display:block;font-family:var(--display);color:#fff;font-size:15px;margin-bottom:3px}
+.dev-cap-real .n{font-size:10px;font-weight:800;color:var(--teal2);letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:5px}
+.dev-controls{display:flex;justify-content:center;gap:10px;margin-top:24px}
+.dev-controls button{width:42px;height:42px;border-radius:50%;border:1px solid var(--glass-line);background:var(--glass);color:#fff;cursor:pointer;display:grid;place-items:center;transition:.2s}
+.dev-controls button:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+.dev-rail::before,.dev-rail::after{content:"";position:absolute;top:0;bottom:0;width:80px;pointer-events:none;z-index:5}
+.dev-rail::before{left:0;background:linear-gradient(90deg,var(--bg-darker),transparent)}
+.dev-rail::after{right:0;background:linear-gradient(270deg,var(--bg-darker),transparent)}
+
+/* Legacy mockup styles (kept for fidelity blocks if reused later) */
+.devices{display:flex;gap:42px;justify-content:center;flex-wrap:wrap}
+.phone{width:292px;height:616px;border-radius:54px;padding:12px;position:relative;flex:none;transition:.45s cubic-bezier(.2,.7,.2,1);
+  background:linear-gradient(155deg,#43434a 0%,#16161a 55%,#0a0a0c 100%);
+  box-shadow:0 60px 120px -45px rgba(0,0,0,.85), inset 0 0 0 2px rgba(255,255,255,.07), inset 0 2px 3px rgba(255,255,255,.18)}
+.phone:hover{transform:translateY(-14px)}
+.phone .notch{position:absolute;top:22px;left:50%;transform:translateX(-50%);width:100px;height:31px;background:#000;border-radius:18px;z-index:6;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
+.scr{width:100%;height:100%;border-radius:42px;overflow:hidden;color:var(--ink);display:flex;flex-direction:column;font-size:12px;position:relative;
+  background:linear-gradient(180deg,#ecfaf5 0%,#f3f1f9 52%,#e5f1fa 100%)}
+.scr::before{content:"";position:absolute;z-index:0;width:230px;height:230px;border-radius:50%;top:-50px;right:-70px;
+  background:radial-gradient(circle,rgba(22,196,169,.55),transparent 68%);filter:blur(14px)}
+.scr::after{content:"";position:absolute;z-index:0;width:230px;height:230px;border-radius:50%;bottom:30px;left:-80px;
+  background:radial-gradient(circle,rgba(139,123,232,.4),transparent 68%);filter:blur(16px)}
+.scr .sb{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:20px 26px 6px;font-size:12px;font-weight:700}
+.scr .body{position:relative;z-index:3;flex:1;padding:10px 18px 20px;overflow:hidden;display:flex;flex-direction:column;gap:13px}
+.dev-cap{text-align:center;color:rgba(255,255,255,.55);margin-top:22px;font-size:13px;font-weight:600}
+.dev-cap b{display:block;font-family:var(--display);color:#fff;font-size:15px;margin-bottom:3px}
+
+.glass{background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);
+  border:1px solid rgba(255,255,255,.72);border-radius:22px;box-shadow:0 12px 30px -18px rgba(0,0,0,.22), inset 0 1px 1px rgba(255,255,255,.6)}
+
+.s-top{display:flex;justify-content:space-between;align-items:center}
+.s-top .t{font-family:var(--display);font-weight:700;font-size:17px}
+.s-pill{background:rgba(22,196,169,.16);color:var(--teal-deep);font-size:10px;font-weight:700;padding:6px 12px;border-radius:20px;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(22,196,169,.18)}
+.s-metric{font-family:var(--display);font-weight:800;font-size:40px;line-height:1}
+.s-metric sub{font-size:15px;color:var(--ink-soft);font-weight:600}
+.s-card{padding:16px 17px}
+.s-card .l{font-size:11px;color:var(--ink-soft);font-weight:600}
+.s-card .v{font-family:var(--display);font-weight:700;font-size:20px;margin-top:4px}
+.s-modes{display:flex;gap:9px}
+.s-modes .m{flex:1;text-align:center;border-radius:16px;padding:13px 4px;font-size:10.5px;font-weight:700;color:var(--ink-soft);
+  background:rgba(255,255,255,.5);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.65)}
+.s-modes .m.on{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 14px 26px -12px rgba(22,196,169,.6)}
+.s-nav{display:flex;gap:7px;padding:9px;margin-top:auto}
+.s-nav i{flex:1;height:42px;border-radius:15px;display:grid;place-items:center;color:#88959c}
+.s-nav i.on{background:var(--ink);color:#fff;box-shadow:0 10px 18px -10px rgba(0,0,0,.4)}
+.s-row{display:flex;gap:11px}
+.s-row .c{flex:1;padding:14px 15px}
+.s-alert{display:flex;gap:12px;align-items:center;border-radius:18px;padding:14px 15px}
+.s-alert .d{width:34px;height:34px;border-radius:12px;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:700;flex:none;font-size:15px}
+.s-bars{display:flex;align-items:flex-end;gap:5px;height:54px;margin-top:14px}
+.s-bars i{flex:1;border-radius:5px 5px 0 0;background:var(--grad)}
+.s-chip{display:inline-block;background:rgba(255,255,255,.55);color:var(--ink-soft);font-size:10px;font-weight:700;padding:6px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.7)}
+.s-chip.on{background:var(--ink);color:#fff;border-color:transparent}
+
+/* mini course card inside phone */
+.mc{border-radius:14px;padding:11px 12px;border:1px solid rgba(255,255,255,.6)}
+.mc.mint{background:linear-gradient(140deg,var(--mint2),var(--mint))}
+.mc.butter{background:linear-gradient(140deg,var(--butter2),var(--butter))}
+.mc.blush{background:linear-gradient(140deg,var(--blush2),var(--blush))}
+.mc.lilac{background:linear-gradient(140deg,var(--lilac2),var(--lilac))}
+.mc .mt{font-family:var(--display);font-weight:700;font-size:11px;color:var(--ink)}
+.mc .mm{font-size:9.5px;color:var(--ink-soft);font-weight:600;margin-top:3px}
+.mc .mb{height:4px;border-radius:99px;background:rgba(255,255,255,.6);margin-top:6px;overflow:hidden}
+.mc .mb i{display:block;height:100%;background:var(--teal-deep);border-radius:99px}
+
+/* ============ RESULTS ============ */
+.results-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.result{text-align:center;background:var(--glass);border:1px solid var(--glass-line);border-radius:var(--r-lg);padding:34px 16px}
+.result .n{font-family:var(--display);font-weight:900;font-size:clamp(34px,4vw,50px);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.result p{font-size:13px;color:rgba(255,255,255,.62);margin-top:8px}
+@media(max-width:880px){.results-grid{grid-template-columns:1fr 1fr}}
+
+/* ============ FINAL SHOWCASE ============ */
+.final{padding:140px 0;text-align:center;position:relative;overflow:hidden;
+  background:radial-gradient(120% 100% at 50% 0%,#1f3a35 0%,#13241f 45%,#0b1715 100%)}
+.final h2{font-family:var(--display);font-weight:900;font-size:clamp(54px,11vw,128px);line-height:.95;letter-spacing:-.04em}
+.final h2 span:nth-child(1){background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.final h2 span:nth-child(2){color:#fff}
+.final h2 span:nth-child(3){background:var(--grad-warm);-webkit-background-clip:text;background-clip:text;color:transparent}
+.final .fsub{color:rgba(255,255,255,.65);font-size:19px;max-width:60ch;margin:28px auto 0}
+.eco-chips{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:46px}
+.eco-chips .ec{background:var(--glass);border:1px solid var(--glass-line);border-radius:30px;padding:13px 22px;font-weight:600;font-size:14px;display:flex;align-items:center;gap:10px}
+.eco-chips .ec .d{width:9px;height:9px;border-radius:50%}
+
+footer{background:var(--bg-darker);border-top:1px solid var(--glass-line);padding:50px 0 60px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+footer .tag{color:rgba(255,255,255,.5);font-size:14px}
+footer .copyright{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  margin-top:28px;padding-top:24px;border-top:1px solid var(--glass-line);font-size:13px;color:rgba(255,255,255,.45)}
+footer .copyright span:first-child{color:rgba(255,255,255,.7);font-weight:600}
+@media(max-width:640px){footer .copyright{justify-content:center;text-align:center}}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(34px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- ===== LOGO SPRITE (graduation cap mark) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="lg-teal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16c4a9"/><stop offset="1" stop-color="#34d6c0"/></linearGradient>
+    <linearGradient id="lg-teal-soft" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a7e0d4"/><stop offset="1" stop-color="#16c4a9"/></linearGradient>
+    <symbol id="lumen-mark" viewBox="0 0 100 100">
+      <!-- soft halo -->
+      <circle cx="50" cy="50" r="44" fill="url(#lg-teal-soft)" opacity=".25"/>
+      <!-- rounded square base -->
+      <rect x="14" y="14" width="72" height="72" rx="22" fill="url(#lg-teal)"/>
+      <!-- graduation cap -->
+      <g fill="#ffffff">
+        <polygon points="50,28 78,42 50,56 22,42"/>
+        <path d="M30 46 V58 C30 64 38 68 50 68 C62 68 70 64 70 58 V46 L50 56 Z" opacity=".92"/>
+        <rect x="74" y="42" width="3" height="14" rx="1.5" opacity=".85"/>
+        <circle cx="75.5" cy="58" r="2.6" opacity=".85"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="progress" id="progress"></div>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#hero" class="brand-link" aria-label="Lumen home">
+      <img class="brand-img" src="lumen/Lumen-removebg.png" alt="Lumen">
+    </a>
+    <div class="links">
+      <a href="#challenge">Challenge</a>
+      <a href="#solution">Solution</a>
+      <a href="#tutor">AI Tutor</a>
+      <a href="#mentors">Mentors</a>
+      <a href="#analytics">Analytics</a>
+      <a href="#mobile">Mobile</a>
+      <a href="#system">Design</a>
+    </div>
+    <a href="#hero" class="cta">Try Lumen</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <canvas id="particles"></canvas>
+  <div class="wrap">
+    <div>
+      <span class="badge-pill reveal"><span class="dot"></span>Adaptive E-Learning · AI Tutor · Live Mentors</span>
+      <h1 class="display reveal">Learn What You Love, At <span class="grad-text">Your Own Pace</span></h1>
+      <p class="sub reveal">Lumen turns scattered study time into focused mastery — adaptive courses, live mentors and an AI tutor that meets you wherever you are.</p>
+      <div class="actions reveal">
+        <a href="#mobile" class="btn btn-primary">See the App →</a>
+        <a href="#solution" class="btn btn-ghost">Explore Features</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="hs"><b class="grad-text" data-count="92" data-suffix="%">0</b><span>Completion rate</span></div>
+        <div class="hs"><b class="grad-text" data-count="12" data-suffix=" day">0</b><span>Avg. learning streak</span></div>
+        <div class="hs"><b class="grad-text" data-count="3.2" data-suffix="k">0</b><span>Students per mentor</span></div>
+      </div>
+    </div>
+
+    <!-- live learning ecosystem panel -->
+    <div class="eco reveal">
+      <div class="eco-head"><span class="t">Lumen Live · Learning Ecosystem</span><span class="live">Live</span></div>
+      <div class="flow">
+        <svg viewBox="0 0 360 230" preserveAspectRatio="none">
+          <g fill="none" stroke="url(#lg-teal)" stroke-width="2.4" class="flowline" stroke-linecap="round">
+            <path d="M180 56 V96"/>
+            <path d="M170 80 H70 V96"/>
+            <path d="M190 80 H290 V96"/>
+            <path d="M180 96 V152"/>
+          </g>
+        </svg>
+        <div class="fnode sun n-sun"><div class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 8.5 12 4l9 4.5L12 13z"/><path d="M7 10.5V15c0 1.5 2.5 3 5 3s5-1.5 5-3v-4.5"/></svg></div><b>Lumen</b><small>Adaptive core</small></div>
+        <div class="fnode n-bat"><div class="ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l1.6 4.8L18 8l-4.4 1.2L12 14l-1.6-4.8L6 8l4.4-1.2z"/></svg></div><b>AI Tutor</b><small>Always on</small></div>
+        <div class="fnode n-grid"><div class="ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div><b>Mentors</b><small>Live coaching</small></div>
+        <div class="fnode n-home"><div class="ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H9l-5 4z"/></svg></div><b>You</b><small>Learning daily</small></div>
+      </div>
+      <div class="metrics">
+        <div class="m"><small>Active Learners Now</small><b>12,438</b></div>
+        <div class="m"><small>Mentors Online</small><b>284 <i>· live</i></b></div>
+        <div class="m"><small>AI Conversations Today</small><b>48.6 <i>k</i></b></div>
+        <div class="m"><small>Avg. Daily Practice</small><b>42 <i>min</i></b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHALLENGE ===== -->
+<section class="sec light" id="challenge">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="num-step">01 — The Challenge</span>
+      <h2>Learning is overwhelming.<br>It shouldn't be.</h2>
+      <p class="lead">Modern learners juggle dozens of disconnected courses, slow feedback loops and rigid pacing — losing momentum to friction they didn't choose.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain reveal"><div class="pic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="4" width="7" height="7" rx="1"/><rect x="3" y="15" width="7" height="5" rx="1"/><rect x="14" y="15" width="7" height="5" rx="1"/></svg></div><h4>Scattered platforms</h4><p>YouTube tabs, PDFs, Notion docs, a half-finished Udemy course — no single home for what you're learning.</p></div>
+      <div class="pain reveal"><div class="pic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M5 5l2 2M17 17l2 2M2 12h4M18 12h4"/><circle cx="12" cy="12" r="3"/></svg></div><h4>One-size-fits-all pacing</h4><p>Courses teach the same path to every learner — strong students stall, beginners get lost.</p></div>
+      <div class="pain reveal"><div class="pic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H9l-5 4z"/></svg></div><h4>No human in the loop</h4><p>Static videos can't answer "why is this wrong?" — questions die in comments threads.</p></div>
+      <div class="pain reveal"><div class="pic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h4>Progress is invisible</h4><p>Hours studied ≠ skills gained. Without feedback signals, motivation evaporates by week three.</p></div>
+      <div class="pain reveal"><div class="pic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M9 10h4a2 2 0 0 1 0 4H9"/></svg></div><h4>Hidden cost of stalled learning</h4><p>Unfinished courses are wasted subscriptions, missed promotions, abandoned career pivots.</p></div>
+      <div class="pain reveal"><div class="pic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h4l3-8 4 16 3-8h4"/></svg></div><h4>No path to portfolio</h4><p>Certificates aren't projects. Hiring needs proof — most platforms can't provide it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOLUTION ===== -->
+<section class="sec mid" id="solution">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">02 — Our Solution</span>
+      <h2>Meet Lumen</h2>
+      <p class="lead">One adaptive layer over your learning life — courses that personalize, mentors who care, an AI tutor that never sleeps, and analytics that prove you grew.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat reveal"><div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 8.5 12 4l9 4.5L12 13z"/><path d="M7 10.5V15c0 1.5 2.5 3 5 3s5-1.5 5-3v-4.5"/></svg></div><h4>Adaptive Courses</h4><p>Lessons sequence themselves around you — speed up when you're flowing, slow down when you stumble.</p></div>
+      <div class="feat reveal"><div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2l1.6 4.8L18 8l-4.4 1.2L12 14l-1.6-4.8L6 8l4.4-1.2z"/><path d="M19 14l.8 2.4L22 17l-2.2.6L19 20l-.8-2.4L16 17l2.2-.6z"/></svg></div><h4>AI Tutor</h4><p>Explanations, quizzes, summaries, flashcards — instantly, in plain language, tuned to your level.</p></div>
+      <div class="feat reveal"><div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div><h4>Live Mentor Network</h4><p>Book 1:1 sessions with senior practitioners. Portfolio reviews. Mock interviews. Real careers.</p></div>
+      <div class="feat reveal"><div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h4>Progress Analytics</h4><p>Daily, weekly and monthly trends across topics. Watch skills compound and streaks turn into habits.</p></div>
+      <div class="feat reveal"><div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></div><h4>Smart Scheduling</h4><p>Lumen blocks calendar time for what matters, balancing depth, review and mentor sessions.</p></div>
+      <div class="feat reveal"><div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="9" r="5"/><path d="M9 13.5 8 21l4-2 4 2-1-7.5"/></svg></div><h4>Verifiable Certificates</h4><p>Project-backed credentials with shareable proof — built from your real work, not just multiple choice.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COURSE LIBRARY ===== -->
+<section class="sec dark" id="library">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <span class="eyebrow reveal">03 — Course Library</span>
+        <h2 class="reveal">Curated learning, calm by design</h2>
+        <p class="lead reveal">Every track is paced for momentum — pastel cards, clear progress bars and a one-tap continue button on the home tab.</p>
+        <div class="kpi-row reveal">
+          <div class="kpi"><b class="grad-text" data-count="14" data-suffix="">0</b><small>Tracks enrolled</small></div>
+          <div class="kpi"><b class="grad-text" data-count="76" data-suffix="%">0</b><small>Avg. completion</small></div>
+          <div class="kpi"><b class="grad-text" data-count="42" data-suffix=" min">0</b><small>Daily focus time</small></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="dash-card">
+          <div class="dc-head"><b>My Courses</b><span class="s-pill">In progress</span></div>
+          <div class="lib-grid">
+            <div class="cc mint"><div class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></div><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/></svg></div><div><div class="tt">Data Science</div><div class="meta">68% complete</div><div class="bar"><i style="width:68%"></i></div></div></div>
+            <div class="cc butter"><div class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></div><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 4v3M14 4v3M10 17v3M14 17v3M4 10h3M4 14h3M17 10h3M17 14h3"/></svg></div><div><div class="tt">Machine Learning</div><div class="meta">42% complete</div><div class="bar"><i style="width:42%"></i></div></div></div>
+            <div class="cc blush"><div class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></div><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4l6 6L9 21l-6 1 1-6z"/></svg></div><div><div class="tt">UI/UX Design</div><div class="meta">85% complete</div><div class="bar"><i style="width:85%"></i></div></div></div>
+            <div class="cc lilac"><div class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></div><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/></svg></div><div><div class="tt">Cyber Security</div><div class="meta">23% complete</div><div class="bar"><i style="width:23%"></i></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AI TUTOR ===== -->
+<section class="sec mid" id="tutor">
+  <div class="wrap">
+    <div class="split rev">
+      <div>
+        <span class="eyebrow reveal">04 — AI Tutor</span>
+        <h2 class="reveal">A patient teacher, always on</h2>
+        <p class="lead reveal">Explain concepts, quiz yourself, summarize chapters, get flashcards. Lumen's tutor adapts to your level and never makes you feel small for asking again.</p>
+        <div class="kpi-row reveal">
+          <div class="kpi"><b class="grad-text" data-count="48.6" data-suffix="k">0</b><small>Conversations today</small></div>
+          <div class="kpi"><b class="grad-text" data-count="94" data-suffix="%">0</b><small>Helpful rating</small></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="ai-wrap">
+          <div class="bubble ai">Hi Aria 👋 I'm your AI Tutor. I can explain concepts, quiz you, summarize chapters, make flashcards, or translate notes. What are we learning today?</div>
+          <div class="bubble me">Explain gradient descent simply.</div>
+          <div class="bubble ai">Imagine standing on a foggy hill and wanting the lowest point. You feel the slope under your feet and take a small step downhill — again and again. Gradient descent is that, for a model's error. Want a quick quiz on it?</div>
+          <div class="suggest">
+            <span class="s">Explain this topic</span><span class="s">Create quiz</span><span class="s">Summarize chapter</span><span class="s">Flashcards</span>
+          </div>
+          <div class="tutor-stats">
+            <div class="st"><small>Avg. response</small><b>1.2s</b></div>
+            <div class="st"><small>Languages</small><b>32</b></div>
+            <div class="st"><small>Context window</small><b>200k</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENTORS ===== -->
+<section class="sec light" id="mentors">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="num-step">05 — Mentor Network</span>
+      <h2>Senior practitioners.<br>One tap away.</h2>
+      <p class="lead">Every mentor is vetted, rated and active in their field. Schedule 1:1 sessions, get portfolio feedback, or sit in on weekly office hours.</p>
+    </div>
+    <div class="mentor-grid">
+      <div class="mentor reveal"><div class="av amber">KM</div><h5>Kali Mona</h5><div class="role">Leading UI/UX Expert</div><div class="rating">★ 4.9 · 3.2k students</div></div>
+      <div class="mentor reveal"><div class="av teal">JW</div><h5>Jhon Williamson</h5><div class="role">Senior Data Scientist</div><div class="rating">★ 4.9 · 5.4k students</div></div>
+      <div class="mentor reveal"><div class="av rose">KM</div><h5>Kate Martinez</h5><div class="role">Typography & Brand Designer</div><div class="rating">★ 4.8 · 1.8k students</div></div>
+      <div class="mentor reveal"><div class="av violet">AR</div><h5>Anaya Roy</h5><div class="role">iOS Architect</div><div class="rating">★ 4.9 · 1.6k students</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IMPACT ===== -->
+<section class="sec dark" id="impact">
+  <div class="wrap">
+    <div class="head reveal" style="text-align:center;margin:0 auto 10px">
+      <span class="eyebrow" style="justify-content:center">06 — Real Outcomes</span>
+      <h2>Learning that compounds into careers</h2>
+      <p class="lead" style="margin:0 auto">Lumen connects daily practice to portfolios, certificates and real promotions — the value of every minute, made visible.</p>
+    </div>
+    <div class="bigstat reveal">
+      <div class="n" data-count="6.5" data-suffix=" hrs">0 hrs</div>
+      <div class="l">Average weekly learning time per active student</div>
+    </div>
+    <div class="fin-grid">
+      <div class="fin-card reveal"><div class="lbl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" stroke-width="2"><path d="M12 2c1 3-1 4-1 6 0 1.5 1 2 1 2s1-1 1-2.5C15 9 17 11 17 14a5 5 0 1 1-10 0c0-3 2-4 3-6 1-1.8 1.5-4 2-6z"/></svg>Active Streak</div><div class="v">12 days</div><div class="chg">+2 vs last week</div></div>
+      <div class="fin-card reveal"><div class="lbl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" stroke-width="2"><path d="M3 13h4l3-8 4 16 3-8h4"/></svg>Course Completion</div><div class="v">76%</div>
+        <div style="height:8px;background:rgba(255,255,255,.1);border-radius:8px;overflow:hidden;margin-top:6px"><i style="display:block;height:100%;width:76%;background:var(--grad);border-radius:8px"></i></div></div>
+      <div class="fin-card reveal"><div class="lbl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" stroke-width="2"><circle cx="12" cy="9" r="5"/><path d="M9 13.5 8 21l4-2 4 2-1-7.5"/></svg>Certificates Earned</div><div class="v">5</div><div class="chg">portfolio-ready</div></div>
+      <div class="fin-card reveal"><div class="lbl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal2)" stroke-width="2"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg>Goals Hit</div><div class="v">38</div><div class="chg">+9 this month</div></div>
+    </div>
+    <div class="reveal" style="margin-top:18px;background:var(--glass);border:1px solid var(--glass-line);border-radius:var(--r-lg);padding:26px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><b style="font-family:var(--display);font-weight:700;font-size:17px">Cumulative Skill Growth</b><span class="s-pill" style="background:rgba(22,196,169,.18);color:var(--teal2)">▲ Skill compounding</span></div>
+      <svg width="100%" height="180" viewBox="0 0 800 180" preserveAspectRatio="none">
+        <defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16c4a9" stop-opacity=".35"/><stop offset="1" stop-color="#16c4a9" stop-opacity="0"/></linearGradient></defs>
+        <g stroke="rgba(255,255,255,.07)"><line x1="0" y1="45" x2="800" y2="45"/><line x1="0" y1="90" x2="800" y2="90"/><line x1="0" y1="135" x2="800" y2="135"/></g>
+        <path d="M0 165 C120 162 200 150 320 130 C440 110 520 78 640 50 C720 32 770 22 800 16 L800 180 L0 180Z" fill="url(#pg)"/>
+        <path d="M0 165 C120 162 200 150 320 130 C440 110 520 78 640 50 C720 32 770 22 800 16" fill="none" stroke="#16c4a9" stroke-width="3"/>
+      </svg>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.5);margin-top:6px"><span>Wk 1</span><span>Wk 4</span><span>Wk 8</span><span>Wk 12</span><span>Wk 16</span><span>Wk 20</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ANALYTICS ===== -->
+<section class="sec light" id="analytics">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="num-step">07 — Performance Analytics</span>
+      <h2>Spot drift before it derails your week</h2>
+      <p class="lead">Actual vs. expected practice across every time horizon surfaces lapses, plateaus and breakthroughs the moment they appear.</p>
+    </div>
+    <div class="tabs reveal">
+      <button class="active" onclick="setTab(this)">Daily</button>
+      <button onclick="setTab(this)">Weekly</button>
+      <button onclick="setTab(this)">Monthly</button>
+      <button onclick="setTab(this)">Yearly</button>
+    </div>
+    <div class="perf-grid">
+      <div class="chart-card reveal">
+        <div class="ch-head"><div><div style="font-size:13px;color:var(--ink-soft);font-weight:600">Focus time · Today</div><b>2h 18m</b></div>
+          <div style="font-size:12px;font-weight:700;color:var(--ink-soft)"><span style="color:var(--ink)">●</span> Actual &nbsp; <span style="color:var(--teal-deep)">●</span> Goal</div></div>
+        <svg width="100%" height="200" viewBox="0 0 700 200" preserveAspectRatio="none">
+          <g stroke="#eef2f1"><line x1="0" y1="50" x2="700" y2="50"/><line x1="0" y1="100" x2="700" y2="100"/><line x1="0" y1="150" x2="700" y2="150"/></g>
+          <path d="M0 175 C120 170 200 80 350 60 C500 40 600 150 700 165" fill="none" stroke="#0c9a83" stroke-width="3" stroke-dasharray="5 6" opacity=".7"/>
+          <path d="M0 180 C120 176 200 96 350 78 C500 60 600 158 700 172" fill="none" stroke="#1b2530" stroke-width="3"/>
+          <circle cx="350" cy="78" r="5" fill="#1b2530"/>
+        </svg>
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--ink-soft);margin-top:8px"><span>06:00</span><span>09:00</span><span>12:00</span><span>15:00</span><span>18:00</span></div>
+      </div>
+      <div class="anomaly reveal">
+        <div class="alert-c warn"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div><div><h5>Streak at risk</h5><p>You're 1.4h short of today's goal. 18 min finishes the lesson on regression.</p></div></div>
+        <div class="alert-c yel"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></div><div><h5>Review window</h5><p>Spaced repetition for "supervised learning" is due — 3 cards waiting.</p></div></div>
+        <div class="alert-c blu"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2l1.6 4.8L18 8l-4.4 1.2L12 14l-1.6-4.8L6 8l4.4-1.2z"/></svg></div><div><h5>Mentor recommends</h5><p>Kali Mona suggested wrapping the typography critique before Friday's session.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INTELLIGENCE ===== -->
+<section class="sec mid" id="intel">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">08 — Learning Intelligence</span>
+      <h2>Smart guidance powered by your data</h2>
+      <p class="lead">Machine learning blends study patterns, retention curves and mentor signals to recommend the right next step — every day.</p>
+    </div>
+    <div class="intel-grid">
+      <div class="intel reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l1.6 4.8L18 8l-4.4 1.2L12 14l-1.6-4.8L6 8l4.4-1.2z"/></svg></div><h4>Next-Best-Lesson</h4><p>Picks tomorrow's lesson from your retention curve and remaining course time budget.</p><div class="v">94% accuracy</div></div>
+      <div class="intel reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></div><h4>Goal Tracking</h4><p>Surfaces drift the moment your trajectory misses a milestone.</p><div class="v">38 hit</div></div>
+      <div class="intel reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div><h4>Spaced Repetition</h4><p>Generates flashcards from your lessons and schedules reviews on Ebbinghaus timing.</p><div class="v">+39% recall</div></div>
+      <div class="intel reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H9l-5 4z"/></svg></div><h4>Mentor Matchmaking</h4><p>Pairs you with the mentor whose past students made the gain you're aiming for.</p><div class="v">3.2k pairs</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DESIGN SYSTEM ===== -->
+<section class="sec light" id="system">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="num-step">09 — Design System</span>
+      <h2>Calm consistency at scale</h2>
+      <p class="lead">A documented token system — color, type, components, theming and spacing — keeps every surface of Lumen coherent from web to native SwiftUI.</p>
+    </div>
+    <div class="ds-grid">
+      <div class="ds col-7 reveal"><h4>Color Palette</h4>
+        <div class="colorrow">
+          <div class="colorchip"><div class="sw" style="background:#16c4a9"></div><span>Teal</span><code>#16C4A9</code></div>
+          <div class="colorchip"><div class="sw" style="background:#0c9a83"></div><span>Teal Deep</span><code>#0C9A83</code></div>
+          <div class="colorchip"><div class="sw" style="background:#dbf4ee"></div><span>Teal Tint</span><code>#DBF4EE</code></div>
+          <div class="colorchip"><div class="sw" style="background:#1b2530"></div><span>Ink</span><code>#1B2530</code></div>
+        </div>
+        <div class="colorrow" style="margin-top:14px">
+          <div class="colorchip"><div class="sw" style="background:#d3efe8"></div><span>Mint</span><code>#D3EFE8</code></div>
+          <div class="colorchip"><div class="sw" style="background:#f6edc9"></div><span>Butter</span><code>#F6EDC9</code></div>
+          <div class="colorchip"><div class="sw" style="background:#f5d9e2"></div><span>Blush</span><code>#F5D9E2</code></div>
+          <div class="colorchip"><div class="sw" style="background:#e3def4"></div><span>Lilac</span><code>#E3DEF4</code></div>
+        </div>
+      </div>
+      <div class="ds col-5 reveal"><h4>Typography · SF Pro / Inter Tight</h4>
+        <div class="type-spec">
+          <div><span class="px">30 / 800</span><span class="display" style="font-weight:800;font-size:26px;color:var(--ink)">Grow with lessons</span></div>
+          <div><span class="px">21 / 700</span><span class="display" style="font-weight:700;font-size:20px;color:var(--ink)">Top Mentors</span></div>
+          <div><span class="px">14 / 500</span><span style="font-size:15px;color:var(--ink)">Learn what you love at your own pace.</span></div>
+          <div style="border:none"><span class="px">12 / 700</span><span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)">68% Complete</span></div>
+        </div>
+      </div>
+      <div class="ds col-4 reveal"><h4>Buttons</h4>
+        <div class="btnset"><button class="b-pri">Continue</button><button class="b-dk">Save</button><button class="b-gh">Cancel</button></div>
+      </div>
+      <div class="ds col-4 reveal"><h4>Inputs</h4>
+        <input class="inp" placeholder="Search courses, mentors…">
+        <input class="inp" placeholder="Daily goal (minutes)">
+      </div>
+      <div class="ds col-4 reveal"><h4>Icons</h4>
+        <div class="iconrow">
+          <div class="ib"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5"/></svg></div>
+          <div class="ib"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg></div>
+          <div class="ib"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v11H9l-5 4z"/></svg></div>
+          <div class="ib"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg></div>
+          <div class="ib"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="9" r="5"/><path d="M9 13.5 8 21l4-2 4 2-1-7.5"/></svg></div>
+        </div>
+      </div>
+      <div class="ds col-6 reveal"><h4>Theme Variants · live in app</h4>
+        <div class="theme-row">
+          <div class="theme-chip"><div class="prev" style="background:linear-gradient(140deg,#eaf8f4,#dff6ef)"><i style="background:#16c4a9"></i><i style="background:#fff"></i><i style="background:#dbf4ee"></i></div><div class="nm">Mint</div></div>
+          <div class="theme-chip"><div class="prev" style="background:linear-gradient(140deg,#f3effc,#ece9fb)"><i style="background:#8b7be8"></i><i style="background:#fff"></i><i style="background:#ece8fb"></i></div><div class="nm">Lavender</div></div>
+          <div class="theme-chip"><div class="prev" style="background:linear-gradient(140deg,#fff1ec,#ffe9e2)"><i style="background:#ff7a66"></i><i style="background:#fff"></i><i style="background:#ffe3dc"></i></div><div class="nm">Coral</div></div>
+          <div class="theme-chip"><div class="prev" style="background:linear-gradient(140deg,#eaf6fd,#d9eefb)"><i style="background:#2b9be0"></i><i style="background:#fff"></i><i style="background:#dcefff"></i></div><div class="nm">Ocean</div></div>
+          <div class="theme-chip"><div class="prev" style="background:linear-gradient(140deg,#121b1e,#0e1417)"><i style="background:#19c9ad"></i><i style="background:#1a2228"></i><i style="background:#123a33"></i></div><div class="nm" style="color:var(--ink)">Graphite</div></div>
+        </div>
+      </div>
+      <div class="ds col-6 reveal"><h4>Spacing System · 8 pt base</h4>
+        <div class="spacing">
+          <div><div class="sp" style="height:16px"></div><span>4</span></div>
+          <div><div class="sp" style="height:28px"></div><span>8</span></div>
+          <div><div class="sp" style="height:44px"></div><span>16</span></div>
+          <div><div class="sp" style="height:64px"></div><span>22</span></div>
+          <div><div class="sp" style="height:88px"></div><span>30</span></div>
+          <div><div class="sp" style="height:110px"></div><span>48</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MOBILE SCREENS ===== -->
+<section class="sec dark" id="mobile">
+  <div class="wrap">
+    <div class="head reveal" style="text-align:center;margin:0 auto 50px">
+      <span class="eyebrow" style="justify-content:center">10 — Mobile Experience</span>
+      <h2>Your classroom, in your pocket</h2>
+      <p class="lead" style="margin:0 auto">Native SwiftUI screens carry the full Lumen experience — adaptive, themeable and beautifully calm. Swipe through nine real screens from the shipped build.</p>
+    </div>
+
+    <!-- Real screenshots in iPhone bezels — horizontal carousel -->
+    <div class="dev-rail reveal">
+      <div class="dev-rail-inner" id="devRail">
+        <div class="dev">
+          <div class="phone-real"><div class="notch-real"></div><img class="shot" src="lumen/1.png" alt="Onboarding"></div>
+          <div class="dev-cap-real"><span class="n">Screen 01</span><b>Onboarding</b>Welcome & first impression</div>
+        </div>
+        <div class="dev">
+          <div class="phone-real"><div class="notch-real"></div><img class="shot" src="lumen/2.png" alt="Home"></div>
+          <div class="dev-cap-real"><span class="n">Screen 02</span><b>Home</b>Adaptive course feed</div>
+        </div>
+        <div class="dev">
+          <div class="phone-real"><div class="notch-real"></div><img class="shot" src="lumen/3.png" alt="Course Detail"></div>
+          <div class="dev-cap-real"><span class="n">Screen 03</span><b>Course Detail</b>Curriculum & lessons</div>
+        </div>
+        <div class="dev">
+          <div class="phone-real"><div class="notch-real"></div><img class="shot" src="lumen/4.png" alt="Video Player"></div>
+          <div class="dev-cap-real"><span class="n">Screen 04</span><b>Video Player</b>Transcript & notes</div>
+        </div>
+        <div class="dev">
+          <div class="phone-real"><div class="notch-real"></div><img class="shot" src="lumen/5.png" alt="My Courses"></div>
+          <div class="dev-cap-real"><span class="n">Screen 05</span><b>My Courses</b>In-progress library</div>
+        </div>
+        <div class="dev">
+          <div class="phone-real"><div class="notch-real"></div><img class="shot" src="lumen/6.png" alt="Timetable"></div>
+          <div class="dev-cap-real"><span class="n">Screen 06</span><b>Timetable</b>Calendar & schedule</div>
+        </div>
+        <div class="dev">
+          <div class="phone-real"><div class="notch-real"></div><img class="shot" src="lumen/7.png" alt="AI Tutor"></div>
+          <div class="dev-cap-real"><span class="n">Screen 07</span><b>AI Tutor</b>Patient, always on</div>
+        </div>
+        <div class="dev">
+          <div class="phone-real"><div class="notch-real"></div><img class="shot" src="lumen/8.png" alt="Profile"></div>
+          <div class="dev-cap-real"><span class="n">Screen 08</span><b>Profile</b>Stats & settings</div>
+        </div>
+        <div class="dev">
+          <div class="phone-real"><div class="notch-real"></div><img class="shot" src="lumen/9.png" alt="Design System"></div>
+          <div class="dev-cap-real"><span class="n">Screen 09</span><b>Design System</b>Themes & tokens</div>
+        </div>
+      </div>
+      <div class="dev-controls">
+        <button onclick="railScroll(-1)" aria-label="Previous screen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button onclick="railScroll(1)" aria-label="Next screen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+
+    <!-- Legacy SVG mockups kept below as supplementary "interactive previews" — hidden by default -->
+    <div class="devices" style="display:none">
+
+      <!-- Home -->
+      <div class="reveal">
+        <div class="phone"><div class="notch"></div><div class="scr">
+          <div class="sb"><span>9:41</span><span>●  ▮▮  􀙇</span></div>
+          <div class="body">
+            <div class="s-top">
+              <span class="lockup" style="gap:8px">
+                <svg class="lmark" style="width:22px;height:22px"><use href="#lumen-mark"/></svg>
+                <span style="font-family:var(--display);font-weight:700;font-size:15px">Lumen</span>
+              </span>
+              <span class="s-pill">● Live</span>
+            </div>
+            <div style="margin-top:2px">
+              <div style="font-family:var(--display);font-weight:800;font-size:21px;line-height:1.1;color:var(--ink)">Grow with Expert<br>Led Lessons</div>
+            </div>
+            <div class="s-card glass" style="display:flex;align-items:center;gap:9px;padding:11px 14px">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9aa6b0" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+              <span style="font-size:12px;color:#9aa6b0;flex:1">Search courses, mentors…</span>
+              <span style="width:26px;height:26px;border-radius:9px;background:var(--teal);color:#fff;display:grid;place-items:center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M7 12h10M10 17h4"/></svg></span>
+            </div>
+            <div style="display:flex;gap:6px"><span class="s-chip on">All</span><span class="s-chip">Programming</span><span class="s-chip">Design</span></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px">
+              <div class="mc mint"><div class="mt">Data Science</div><div class="mm">68% complete</div><div class="mb"><i style="width:68%"></i></div></div>
+              <div class="mc butter"><div class="mt">Machine Learning</div><div class="mm">42% complete</div><div class="mb"><i style="width:42%"></i></div></div>
+            </div>
+            <div class="s-nav glass">
+              <i class="on"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5"/></svg></i>
+              <i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/></svg></i>
+              <i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="3"/></svg></i>
+              <i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v11H9l-5 4z"/></svg></i>
+              <i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></i>
+            </div>
+          </div>
+        </div></div>
+        <div class="dev-cap"><b>Home</b>Adaptive course feed</div>
+      </div>
+
+      <!-- Course Detail -->
+      <div class="reveal">
+        <div class="phone"><div class="notch"></div><div class="scr">
+          <div class="sb"><span>9:41</span><span>●  ▮▮  􀙇</span></div>
+          <div class="body">
+            <div class="s-top"><span class="t" style="font-size:15px">Course</span><span class="s-pill">42% · in progress</span></div>
+            <div class="mc mint" style="height:88px;display:grid;place-items:center;padding:0">
+              <div style="width:50px;height:50px;border-radius:14px;background:rgba(255,255,255,.7);display:grid;place-items:center;color:var(--teal-deep)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 4v3M14 4v3M10 17v3M14 17v3M4 10h3M4 14h3M17 10h3M17 14h3"/></svg></div>
+            </div>
+            <div>
+              <div style="font-family:var(--display);font-weight:800;font-size:17px;color:var(--ink);line-height:1.15">Machine Learning Foundations</div>
+              <div style="font-size:10.5px;color:var(--ink-soft);margin-top:3px;font-weight:600">Jhon Williamson · ★ 4.9</div>
+            </div>
+            <div class="s-row">
+              <div class="c glass" style="padding:9px 10px;text-align:center"><div style="font-family:var(--display);font-weight:800;font-size:14px;color:var(--ink)">24</div><div class="l" style="font-size:9px">Lessons</div></div>
+              <div class="c glass" style="padding:9px 10px;text-align:center"><div style="font-family:var(--display);font-weight:800;font-size:14px;color:var(--ink)">8h 20m</div><div class="l" style="font-size:9px">Duration</div></div>
+              <div class="c glass" style="padding:9px 10px;text-align:center"><div style="font-family:var(--display);font-weight:800;font-size:14px;color:var(--ink)">42%</div><div class="l" style="font-size:9px">Progress</div></div>
+            </div>
+            <div class="s-card glass" style="padding:11px 13px">
+              <div style="display:flex;align-items:center;gap:10px;padding:5px 0"><div style="width:24px;height:24px;border-radius:8px;background:var(--teal);color:#fff;display:grid;place-items:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12.5 10 17 19 7"/></svg></div><div style="flex:1"><div style="font-size:11px;font-weight:700;color:var(--ink)">Intro to ML thinking</div><div style="font-size:9px;color:var(--ink-soft)">14 min</div></div></div>
+              <div style="height:1px;background:var(--line);margin:4px 0"></div>
+              <div style="display:flex;align-items:center;gap:10px;padding:5px 0"><div style="width:24px;height:24px;border-radius:8px;background:var(--teal-tint);color:var(--teal-deep);display:grid;place-items:center;font-weight:700;font-size:10px">3</div><div style="flex:1"><div style="font-size:11px;font-weight:700;color:var(--ink)">Linear regression</div><div style="font-size:9px;color:var(--teal-deep);font-weight:600">18 min · now playing</div></div><svg width="11" height="11" viewBox="0 0 24 24" fill="var(--teal-deep)"><path d="M8 5.5v13l11-6.5z"/></svg></div>
+            </div>
+            <button class="b-pri" style="margin-top:auto;width:100%;border-radius:18px;padding:13px;font-size:13px"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px;vertical-align:-2px"><path d="M8 5.5v13l11-6.5z"/></svg>Continue learning</button>
+          </div>
+        </div></div>
+        <div class="dev-cap"><b>Course Detail</b>Curriculum & progress</div>
+      </div>
+
+      <!-- AI Tutor -->
+      <div class="reveal">
+        <div class="phone"><div class="notch"></div><div class="scr">
+          <div class="sb"><span>9:41</span><span>●  ▮▮  􀙇</span></div>
+          <div class="body">
+            <div class="s-top">
+              <span style="display:flex;align-items:center;gap:9px">
+                <span style="width:38px;height:38px;border-radius:50%;background:linear-gradient(145deg,#19c9ad,#3ad9c4);display:grid;place-items:center;color:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 4.8L18 8l-4.4 1.2L12 14l-1.6-4.8L6 8l4.4-1.2z"/></svg></span>
+                <span><div style="font-family:var(--display);font-weight:700;font-size:14px;color:var(--ink)">AI Tutor</div><div style="font-size:9.5px;color:var(--success);font-weight:700">● Online</div></span>
+              </span>
+              <span class="s-pill">Today</span>
+            </div>
+            <div style="background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);border-radius:18px;border-bottom-left-radius:6px;padding:11px 13px;font-size:11px;line-height:1.5;color:var(--ink)">Hi Aria 👋 I'm your AI Tutor. What are we learning today?</div>
+            <div style="margin-left:auto;background:var(--grad);color:#fff;border-radius:18px;border-bottom-right-radius:6px;padding:11px 13px;font-size:11px;max-width:80%">Explain gradient descent simply.</div>
+            <div style="background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);border-radius:18px;border-bottom-left-radius:6px;padding:11px 13px;font-size:11px;line-height:1.5;color:var(--ink);max-width:90%">Imagine standing on a foggy hill and stepping downhill — over and over. That's gradient descent for a model's error. Want a quick quiz?</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <span class="s-chip" style="background:var(--teal-tint);color:var(--teal-deep);border-color:transparent">Quick quiz</span>
+              <span class="s-chip" style="background:var(--teal-tint);color:var(--teal-deep);border-color:transparent">Flashcards</span>
+              <span class="s-chip" style="background:var(--teal-tint);color:var(--teal-deep);border-color:transparent">Summary</span>
+            </div>
+            <div style="margin-top:auto;background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.8);border-radius:18px;padding:7px 7px 7px 13px;display:flex;align-items:center;gap:8px">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="#9aa6b0"><path d="M12 2l1.6 4.8L18 8l-4.4 1.2L12 14l-1.6-4.8L6 8l4.4-1.2z"/></svg>
+              <span style="font-size:11px;color:#9aa6b0;flex:1">Ask anything…</span>
+              <span style="width:30px;height:30px;border-radius:10px;background:var(--grad);color:#fff;display:grid;place-items:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+          </div>
+        </div></div>
+        <div class="dev-cap"><b>AI Tutor</b>Patient & always on</div>
+      </div>
+
+      <!-- Analytics -->
+      <div class="reveal">
+        <div class="phone"><div class="notch"></div><div class="scr">
+          <div class="sb"><span>9:41</span><span>●  ▮▮  􀙇</span></div>
+          <div class="body">
+            <div class="s-top"><span class="t">Progress</span><span class="s-pill">This week</span></div>
+            <div class="s-row">
+              <div class="c" style="padding:14px 15px;background:var(--grad);color:#fff;border-radius:18px;border:none">
+                <div style="font-size:11px;opacity:.92;font-weight:600">This week</div>
+                <div style="font-family:var(--display);font-weight:800;font-size:24px;margin-top:2px">6.5h</div>
+              </div>
+              <div class="c" style="padding:14px 15px;background:linear-gradient(150deg,#8b7be8,#b3a4f5);color:#fff;border-radius:18px;border:none">
+                <div style="font-size:11px;opacity:.92;font-weight:600">Day streak</div>
+                <div style="font-family:var(--display);font-weight:800;font-size:24px;margin-top:2px">12 🔥</div>
+              </div>
+            </div>
+            <div class="s-card glass">
+              <div class="l">Hours this week</div>
+              <svg width="100%" height="64" viewBox="0 0 230 64" preserveAspectRatio="none" style="margin-top:6px">
+                <defs><linearGradient id="lg-mini" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16c4a9" stop-opacity=".4"/><stop offset="1" stop-color="#16c4a9" stop-opacity="0"/></linearGradient></defs>
+                <path d="M0 50 C28 40 50 30 80 32 C110 34 130 18 170 16 C200 14 215 26 230 22 L230 64 L0 64Z" fill="url(#lg-mini)"/>
+                <path d="M0 50 C28 40 50 30 80 32 C110 34 130 18 170 16 C200 14 215 26 230 22" fill="none" stroke="#16c4a9" stroke-width="2.4"/>
+                <circle cx="170" cy="16" r="3.5" fill="#16c4a9" stroke="#fff" stroke-width="1.5"/>
+              </svg>
+              <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--ink-soft);margin-top:4px;font-weight:600"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+            </div>
+            <div class="s-row">
+              <div class="c glass"><div class="l">Completion</div><div class="v">76%</div></div>
+              <div class="c glass"><div class="l">Certificates</div><div class="v">5</div></div>
+            </div>
+            <div class="s-card glass" style="display:flex;justify-content:space-around;padding:13px 14px">
+              <div style="text-align:center"><div style="width:34px;height:34px;border-radius:11px;background:var(--teal-tint);color:var(--teal-deep);display:grid;place-items:center;margin:0 auto"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3-1 4-1 6 0 1.5 1 2 1 2s1-1 1-2.5C15 9 17 11 17 14a5 5 0 1 1-10 0c0-3 2-4 3-6 1-1.8 1.5-4 2-6z"/></svg></div><div style="font-size:9px;font-weight:700;color:var(--ink-soft);margin-top:4px">Streak 12</div></div>
+              <div style="text-align:center"><div style="width:34px;height:34px;border-radius:11px;background:var(--lilac);color:#7a6cd6;display:grid;place-items:center;margin:0 auto"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="9" r="5"/><path d="M9 13.5 8 21l4-2 4 2-1-7.5"/></svg></div><div style="font-size:9px;font-weight:700;color:var(--ink-soft);margin-top:4px">5 Certs</div></div>
+              <div style="text-align:center"><div style="width:34px;height:34px;border-radius:11px;background:var(--butter);color:#caa23a;display:grid;place-items:center;margin:0 auto"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 4.8L18 8l-4.4 1.2L12 14l-1.6-4.8L6 8l4.4-1.2z"/></svg></div><div style="font-size:9px;font-weight:700;color:var(--ink-soft);margin-top:4px">Fast</div></div>
+            </div>
+          </div>
+        </div></div>
+        <div class="dev-cap"><b>Progress</b>Skills that compound</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESULTS ===== -->
+<section class="sec mid" id="results">
+  <div class="wrap">
+    <div class="head reveal" style="text-align:center;margin:0 auto 50px">
+      <span class="eyebrow" style="justify-content:center">11 — Results</span>
+      <h2>Outcomes that compound</h2>
+      <p class="lead" style="margin:0 auto">Measured across early cohorts spanning self-taught learners, mid-career switchers and corporate teams.</p>
+    </div>
+    <div class="results-grid">
+      <div class="result reveal"><div class="n"><span data-count="92" data-suffix="%">0%</span></div><p>Course completion rate</p></div>
+      <div class="result reveal"><div class="n"><span data-count="3.4" data-suffix="×">0×</span></div><p>Faster concept mastery</p></div>
+      <div class="result reveal"><div class="n"><span data-count="68" data-prefix="+" data-suffix="%">+0%</span></div><p>Higher retention vs control</p></div>
+      <div class="result reveal"><div class="n"><span data-count="12" data-prefix="+" data-suffix=" pts">+0 pts</span></div><p>NPS improvement</p></div>
+      <div class="result reveal"><div class="n"><span data-count="48" data-prefix="+" data-suffix="%">+0%</span></div><p>Daily active learning</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL ===== -->
+<section class="final" id="final">
+  <div class="wrap">
+    <div class="reveal" style="display:flex;justify-content:center;margin-bottom:40px"><img class="brand-img xl" src="lumen/Lumen-removebg.png" alt="Lumen"></div>
+    <h2 class="reveal"><span>Learn.</span> <span>Grow.</span> <span>Compound.</span></h2>
+    <p class="fsub reveal">Lumen turns scattered curiosity into focused mastery — adaptive courses, live mentors and an AI tutor that always has your back.</p>
+    <div class="eco-chips reveal">
+      <div class="ec"><span class="d" style="background:var(--teal)"></span>Adaptive Courses</div>
+      <div class="ec"><span class="d" style="background:var(--violet)"></span>Live Mentors</div>
+      <div class="ec"><span class="d" style="background:var(--amber)"></span>AI Tutor</div>
+      <div class="ec"><span class="d" style="background:var(--rose)"></span>Smart Schedule</div>
+      <div class="ec"><span class="d" style="background:var(--success)"></span>Verified Certs</div>
+    </div>
+    <div class="reveal" style="margin-top:46px">
+      <a href="#hero" class="btn btn-primary">Start Learning →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <img class="brand-img" src="lumen/Lumen-removebg.png" alt="Lumen">
+    <div class="tag">Adaptive Learning Platform · Built with SwiftUI · Clean Architecture · MVVM · SOLID</div>
+  </div>
+  <div class="wrap copyright">
+    <span>© 2026 Lumen · Empowering Future Generations</span>
+    <span>Designed in calm. Built to grow.</span>
+  </div>
+</footer>
+
+<script>
+/* ============ NAV SCROLL ============ */
+const nav = document.getElementById('nav');
+const progress = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = ((window.scrollY / h) * 100) + '%';
+});
+
+/* ============ REVEAL ============ */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ============ COUNT UP ============ */
+function animateCount(el) {
+  const target = parseFloat(el.dataset.count);
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const isFloat = (target % 1) !== 0;
+  const dur = 1400, start = performance.now();
+  const step = (now) => {
+    const t = Math.min(1, (now - start) / dur);
+    const v = target * (1 - Math.pow(1 - t, 3));
+    el.textContent = prefix + (isFloat ? v.toFixed(1) : Math.round(v).toLocaleString()) + suffix;
+    if (t < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+const countIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !e.target.dataset.done) {
+      e.target.dataset.done = '1';
+      animateCount(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
+
+/* ============ TABS ============ */
+function setTab(btn) {
+  btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+/* ============ DEVICE RAIL ============ */
+function railScroll(dir) {
+  const rail = document.getElementById('devRail');
+  if (!rail) return;
+  // Snap by one device width + gap
+  const step = 260 + 36;
+  rail.scrollBy({ left: dir * step, behavior: 'smooth' });
+}
+
+/* ============ PARTICLES (calm teal motes) ============ */
+const canvas = document.getElementById('particles');
+if (canvas) {
+  const ctx = canvas.getContext('2d');
+  let W, H, motes = [];
+  const resize = () => {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+    motes = Array.from({length: 32}, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      r: 1 + Math.random() * 2,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      a: 0.3 + Math.random() * 0.5
+    }));
+  };
+  const tick = () => {
+    ctx.clearRect(0, 0, W, H);
+    motes.forEach(m => {
+      m.x += m.vx; m.y += m.vy;
+      if (m.x < 0 || m.x > W) m.vx *= -1;
+      if (m.y < 0 || m.y > H) m.vy *= -1;
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(22,196,169,${m.a})`;
+      ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    requestAnimationFrame(tick);
+  };
+  resize();
+  window.addEventListener('resize', resize);
+  tick();
+}
+</script>
+</body>
+</html>
