@@ -1,0 +1,39 @@
+rules_version = '2';
+
+// Public portfolio site. There is no authentication anywhere in this app,
+// so every rule below is written to be safe for a fully anonymous caller.
+// Default posture is deny; only the visitor counter is reachable.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Visitor counter — read by anyone, incrementable by exactly one, nothing else.
+    //
+    // The client calls updateDoc(ref, { count: increment(1) }). Firestore applies
+    // the numeric transform before evaluating rules, so request.resource.data.count
+    // is the post-increment value and the +1 check below holds.
+    //
+    // The sessionStorage guard in visitorCounterService.ts is a UX nicety and is
+    // trivially bypassed. These rules are the actual boundary: the worst an abuser
+    // can do is add 1 per request, which is a rate-limit problem, not a data problem.
+    match /visitors/counter {
+      allow read: if true;
+
+      allow update: if request.resource.data.keys().hasOnly(['count'])
+                    && request.resource.data.count is int
+                    && resource.data.count is int
+                    && request.resource.data.count == resource.data.count + 1;
+
+      // Permit first-run seeding only, pinned to 1. Combined with `delete: if false`
+      // this cannot be used to reset a live counter.
+      allow create: if request.resource.data.keys().hasOnly(['count'])
+                    && request.resource.data.count == 1;
+
+      allow delete: if false;
+    }
+
+    // Everything else is unreachable.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

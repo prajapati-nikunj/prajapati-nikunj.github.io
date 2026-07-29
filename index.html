@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    Security headers.
+
+    `referrer` below is honored as a meta tag. The two http-equiv tags that used
+    to sit here (X-Content-Type-Options, Permissions-Policy) were removed: no
+    browser honors them via <meta>, only as real HTTP headers, which GitHub Pages
+    does not let us set. They were reading as protection that did not exist.
+    Same limitation applies to frame-ancestors — this site is frameable and there
+    is no in-repo fix. Putting Cloudflare in front is the only way to set real
+    headers (nosniff, Permissions-Policy, X-Frame-Options/frame-ancestors).
+  -->
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!--
+    Content Security Policy. Honored via meta (unlike the above).
+
+    base-uri and form-action do NOT fall back to default-src, so omitting them
+    left them unrestricted — base-uri especially, where one injected <base>
+    re-points every relative URL on the page.
+
+    script-src keeps 'unsafe-inline' because react-ga4 injects an inline gtag
+    bootstrap at runtime; its content is dynamic, so a hash cannot be computed at
+    build time and Pages cannot serve a per-request nonce. This is a known,
+    accepted weakening — revisit if GA is ever dropped or self-hosted.
+
+    connect-src uses a wildcard for GA because GA4 beacons to regional endpoints
+    (region1.google-analytics.com), not just www — the previous exact-host entry
+    was silently dropping hits. *.googleapis.com covers Firestore.
+  -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googleapis.com; base-uri 'self'; form-action 'self'; object-src 'none';" />
+
+  <!-- Primary Meta Tags -->
+  <title>Nikunj Prajapati | Lead iOS Software Engineer</title>
+  <meta name="title" content="Nikunj Prajapati | Lead iOS Software Engineer" />
+  <meta name="description"
+    content="Dedicated and results-driven iOS Developer with 9+ years of professional experience in building robust, scalable, and high-performance mobile applications using Swift, SwiftUI, and modern iOS architectures." />
+  <meta name="keywords"
+    content="iOS Developer, Swift, SwiftUI, Mobile Development, Software Engineer, Lead iOS Engineer, iOS Architect, Clean Architecture, MVVM, Combine" />
+  <meta name="author" content="Nikunj Prajapati" />
+  <meta name="theme-color" content="#3b82f6" />
+  <link rel="canonical" href="https://prajapati-nikunj.github.io/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://prajapati-nikunj.github.io/" />
+  <meta property="og:title" content="Nikunj Prajapati | Lead iOS Software Engineer" />
+  <meta property="og:description"
+    content="Dedicated and results-driven iOS Developer with 9+ years of professional experience in building robust, scalable, and high-performance mobile applications using Swift, SwiftUI, and modern iOS architectures. I excel at guiding teams, improving engineering processes, conducting detailed code reviews, and architecting solutions that align with both technical and business goals. My focus lies in combining innovation with practicality to deliver impactful products." />
+  <meta property="og:site_name" content="Nikunj Prajapati Portfolio" />
+  <meta property="og:image" content="https://prajapati-nikunj.github.io/logo.png" />
+  <meta property="og:image:alt" content="Nikunj Prajapati — Lead iOS Software Engineer" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://prajapati-nikunj.github.io/" />
+  <meta property="twitter:title" content="Nikunj Prajapati | Lead iOS Software Engineer" />
+  <meta property="twitter:description"
+    content="Dedicated and results-driven iOS Developer with 9+ years of professional experience in building robust, scalable, and high-performance mobile applications using Swift, SwiftUI, and modern iOS architectures. I excel at guiding teams, improving engineering processes, conducting detailed code reviews, and architecting solutions that align with both technical and business goals. My focus lies in combining innovation with practicality to deliver impactful products." />
+  <meta property="twitter:image" content="https://prajapati-nikunj.github.io/logo.png" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nikunj Prajapati",
+    "jobTitle": "Lead iOS Software Engineer",
+    "description": "Dedicated and results-driven iOS Developer with 9+ years of professional experience",
+    "url": "https://prajapati-nikunj.github.io/",
+    "sameAs": [
+      "https://github.com/prajapati-nikunj",
+      "https://www.linkedin.com/in/nikunjprajapati/",
+      "https://x.com/Nikunj_07"
+    ],
+    "knowsAbout": [
+      "Swift",
+      "SwiftUI",
+      "iOS Development",
+      "Mobile App Development",
+      "Clean Architecture",
+      "MVVM",
+      "Combine",
+      "UIKit"
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
