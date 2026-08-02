@@ -13,7 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/react": "^4.3.2",
     "@tsparticles/slim": "^3.9.1",
     "firebase": "^12.14.0",
     "framer-motion": "^11.0.0",
